@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'myjs/signup.js' %}"></script>
+    <script src="{% static 'myjs/cities.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'serviceprovider.css' %}" media="all">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
+</head>
+<body>
+{#{% include 'headers.html' %}#}
+    <div class="form">
+    <h1>Service Provider Sign Up</h1>
+	<div class="form-content">
+		<form action="#" id="form1" method="post">
+            <div class="name">
+                <label>Mobile</label>
+                <input type="number" class="input1" data-rule-number="true" maxlength="10" minlength="10" placeholder="Enter Your Mobile" id="mobile" name="mobile">
+            </div>
+			<div class="email">
+				<label>Email</label>
+				<input class="input1" type="email" id="email" name="email" placeholder="Email" required="">
+			</div>
+			<div class="pass1">
+				<label>Password</label>
+				<input class="input1" type="password" id="password" name="password" placeholder="**********" required="">
+			</div>
+			<div class="pass2">
+				<label>Re-Password</label>
+				<input class="input1" type="password" data-rule-equalto="#password" name="confirm pasdsword" placeholder="**********" required="">
+			</div>
+
+            <div class="name">
+				<label>Business</label>
+				<input class="input1" type="text" name="business" id="business" placeholder="Enter your Business" required="">
+			</div>
+
+            <div class="name">
+				<label>Select Category</label>
+                <select name="category" id="category" data-rule-msg="true">
+                    <optgroup label="Select Category">
+                        {% for cat in category %}
+                            <option value="{{cat}}">{{cat}}</option>
+                        {% endfor %}
+
+                    </optgroup>
+                </select>
+			</div>
+
+            <div class="name">
+				<label>Address</label>
+                <textarea name="address" id="address" cols="10" rows="2" placeholder="Enter Your Address" data-rule-msg="true" required></textarea>
+			</div>
+
+            <div class="name">
+                <label >Timing</label>
+                <input type="text" class="input1" id="timing" name="timing" data-rule-msg="true" PLACEHOLDER="10:00 am to 12:00am" required>
+            </div>
+
+            <div class="name">
+                <label>Price</label>
+                <input type="number" class="input1" id="price" data name="price" data-rule-number="true" placeholder="Enter Price" required>
+            </div>
+
+            <div class="name">
+                <label>Service Area</label>
+                <textarea name="servicearea" id="servicearea" cols="10" rows="2" required  data-rule-msg="true" placeholder="Enter area in which you can provide services"></textarea>
+            </div>
+
+            <div class="name">
+                <label >City</label>
+                <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                <select id ="state"  name="city" class="form-control" required></select>
+                <script language="javascript">print_state("sts");</script>
+            </div>
+
+			<div class="signup">
+				<button type="button" onclick="serviceprovidersignup()"  >Sign Up</button>
+			</div>
+		</form>
+	</div>
+</div>
+    {% include 'footer.html' %}
+</body>
+</body>
+</html>

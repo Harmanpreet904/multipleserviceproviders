@@ -1,0 +1,46 @@
+
+body
+{
+    background: url('photos/mainbackground.jpg');
+
+}
+
+.log{
+
+    padding:60px 40px;
+    margin-top:80px;
+    margin-bottom: 80px;
+    -webkit-box-shadow: -5px 2px 62px 8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -5px 2px 62px 8px rgba(0,0,0,0.75);
+    box-shadow: -5px 2px 62px 8px rgba(0,0,0,0.75);
+}
+
+
+img
+{
+    width:50%;
+
+}
+
+
+h1{
+color:white;
+text-align:center;
+font-weight:bolder;
+margin-top:-20px;
+}
+
+
+label
+{
+    font-size:20px;
+    color:white;
+}
+button
+{
+    -webkit-box-shadow: -5px 2px 62px 8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -5px 2px 62px 8px rgba(0,0,0,0.75);
+    box-shadow: -5px 2px 62px 8px rgba(0,0,0,0.75);
+}
+
+

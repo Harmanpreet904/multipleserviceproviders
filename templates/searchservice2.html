@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'myjs/signup.js' %}"></script>
+    <script>
+        var s0,s1,s2,s3,s4,s5;
+        function openmodal(r0, r1, r2, r3, r4, r5) {
+            s0=r0;
+            s1=r1;
+            s2=r2;
+            s3=r3;
+            s4=r4;
+            s5=r5;
+            alert(r0 + " " + r1 + " " + r2 + " " + r3 + " " + r4 + " " + r5);
+            var ans = "<label>"+"<strong>"+ "Merchant:" +"</strong>" +"</label>"
+                    +"<br>"
+                +"<i>"+r1+"</i>" +
+                "<br><br><br> " +
+                r2 +
+                "<br><br><br>" +
+                r3 +
+                "<br><br><br> " +
+                r4 +
+                "<br><br><br> "
+                + r5 ;
+            document.getElementById('servicedetail').innerHTML = ans;
+            $('#myModal').modal('show');
+        }
+function bookservice() {
+    var mobile = document.getElementById('mobile');
+    var email = document.getElementById('email');
+    var address = document.getElementById('address');
+    var pincode = document.getElementById('pincode');
+    {#var xml = new XMLHttpRequest();#}
+    {#   xml.onreadystatechange = function () {#}
+    {#   if (this.readyState == 4 && this.status == 200) {#}
+    {#   var output = this.response;#}
+    {#   alert(output);#}
+    {#   #}
+
+    window.location.href="bookservice?s1="+s1+"&s2="+s2+"&s3="+s3+"&s4="+s4+"&s5="+s5+"&mobile="+mobile+"&email="+email+"&address="+address+"&pincode="+pincode;
+    {#xml.open('GET', 'bookservice?s1='+s1+"&s2="+s2+"&s3="+s3+"&s4="+s4+"&s5="+s5+"&mobile="+mobile+"&email="+email+"&address="+address+"&pincode="+pincode, true);#}
+    {#xml.send(book);#}
+
+
+}
+    </script>
+
+</head>
+<body>
+{% include 'headers.html' %}
+
+
+{{ ar }}
+
+<div class="container">
+    <div class="row">
+        {% for row in ar %}
+            <div class="card" style="width: 18rem;">
+
+                <img class="card-img-top" style="width: 100%;height: 50%"
+                     src="{% static 'media/merchantservices/' %}{{ row.5 }}" alt="Card image cap">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ row.2 }}</h5>
+                    <button type="button" class=" btn btn-info btn float-left">Merchant Detail</button>
+                    <button  class=" btn btn-primary btn float-right" onclick="openmodal('{{ row.0 }}','{{ row.1 }}','{{ row.2 }}','{{ row.3 }}','{{ row.4 }}','{{ row.5 }}')">
+                        Book
+                    </button>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+
+</div>
+
+{#                           Booking Modal                  #}
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 style="justify-content: center">Service Description</h3>
+                        <div id="servicedetail">
+                        </div>
+
+
+                    </div>
+                    <hr>
+                    <div class="col-sm-6">
+
+                        <h4>Please Fill the Following Detail to Book Service</h4>
+
+                        <form action="">
+                            <div class="form-group">
+                                <label for="mobile"><strong>mobile</strong></label>
+                                <input type="number" class="form-control " id="mobile" name="mobile">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email"><strong>E-mail</strong></label>
+                                <input type="email" class="form-control " id="email" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address"><strong>Address</strong></label>
+                                <textarea name="address" id="address" cols="5" rows="2" class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pincode"><strong>Pincode</strong></label>
+                                <input type="number" maxlength="6" minlength="6" class="form-control " id="pincode" name="pincode">
+                            </div>
+                            <div class="form-group">
+
+                                <button type="button" class=" btn btn-info btn float-right" onclick="bookservice()">Book</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

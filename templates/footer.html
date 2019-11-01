@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'dist/jquery.validate.js' %}"></script>
+<script src="{% static 'jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.css' %}"></script>
+<script src="{% static 'jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+<style>
+    .error{
+        color: red;
+    }
+
+</style>
+
+
+<script>
+    $(document).ready(function () {
+        $("#form1").validate();
+        $(".formval").validate();
+        $("#dob").datepicker({
+            changeYear: true,
+            changeMonth: true,
+            dateFormat: "yy-mm-dd"
+        })
+    })
+</script>

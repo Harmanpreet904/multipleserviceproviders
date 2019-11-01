@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <script src="{% static "js/popper.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <title>Title</title>
+    <script>
+        function show() {
+            var data  =  document.getElementById("input").value;
+            var x=new XMLHttpRequest();
+            x.onreadystatechange = function () {
+                if (this.readyState==4 && this.status==200)
+                {
+                    document.getElementById("showme").innerHTML = this.response;
+                }
+            };
+            x.open("GET","show?fname="+data,true);
+            x.send();
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="input">
+<p id="showme"></p>
+<input type="button" value="show" onclick="show()">
+</body>
+</html>

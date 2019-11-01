@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    {% include 'headers.html' %}
+    <script >
+
+        function go(catname){
+
+            var city=document.getElementById('city').value;
+            {#alert(city+" "+catname);#}
+            window.location.href="searchservice2?catname="+catname+"&city="+city;
+        }
+
+
+    </script>
+        <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="container">
+            <div class="row form-group">
+                <div class="col-sm-4 text-right">
+                    <label for="city">Select Your City</label>
+                </div>
+                <div class="col-sm-5">
+                    <select data-rule-required="true" class="form-control" name="city" id="city">--Select Category--
+                    {% for foo in city %}
+                        <option value="{{ foo }}">{{ foo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-sm-3 text-left">
+                    <input type="button" class=" btn btn-danger" value="Go">
+                </div>
+            </div>
+            <div class="text-center">
+                <h1>Category</h1>
+            </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for foo in category %}
+            <div class="col-sm-4">
+                <div class="card mt-5" style="width: 18rem">
+                    <div class="justify-content-center text-center mt-3">
+                        <img src="{% static 'media/Categoryphotos/' %}{{ foo.photo }}" alt="" width="250" height="150" >
+                        <input type="button" class="btn btn-info" value="explore" onclick="go('{{ foo.catname }}')">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ foo.catname }}</h5>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+    </div>
+{% include 'footer.html' %}
+</body>
+</html>

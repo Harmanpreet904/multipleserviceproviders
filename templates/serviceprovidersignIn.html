@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'indexcss/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link href="{% static 'indexcss/fontawesome-all.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.11.2-web/css/all.css' %}">
+    <link href="{% static 'indexcss/easy-responsive-tabs.css' %}" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="{% static 'indexcss/flexslider.css' %}" type="text/css" media="all">
+    <link href="{% static 'indexcss/merchantdashboard.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'myjs/signup.js' %}"></script>
+    <script src="{% static 'myjs/cities.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.11.2-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'serviceprovidersignin.css' %}" media="all">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"
+          rel="stylesheet">
+
+    <style>
+        @media screen and (max-width: 1280px) {
+            .form-content {
+                margin-top: 10%;
+            }
+        }
+
+        .active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .fas, .fa-home {
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <!-- header -->
+    <div class="header-w3l">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#" style="color: whitesmoke;font-weight: bolder">Merchant Login</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link " href="index"><i class="fas fa-home fa-3x "></i></a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</header>
+<div class="form">
+    <div class="form-content">
+        <form action="#" id="" method="post">
+            <div class="email">
+                <label>Enter Email</label>
+                <input class="input1" type="email" id="email" name="email" placeholder="Email" required="">
+            </div>
+            <div class="pass1">
+                <label>Enter Password</label>
+                <input class="input1" type="password" id="password" name="password" placeholder="**********"
+                       required="">
+            </div>
+            <div>
+                <i class="fa fa-key" aria-hidden="true" style="color: white" t></i>
+                <a href="" style="color: whitesmoke" data-toggle="modal" data-target="#forgetpassword"><strong>Forget
+                    Password</strong></a>
+                <button type="button" onclick="serviceproviderlogin()">Sign In</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{#forget password Model#}
+<div id="forgetpassword" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content bg-info">
+            <div class="modal-header">
+                <h4 class="modal-title">Forget Password</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body bg-info">
+                <p>Please Enter Your Registered Mobile Here</p>
+                <form id="form1" action=" " method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="number" maxlength="10" data-rule-number="true" id="mob" name="mob"
+                               class="form-control" required placeholder="Enter Registered Mobile NO">
+                    </div>
+                    <div class=" form-check">
+                        <button type="button" class="btn btn-secondary" onclick="forgetmerchantpassword()">Reset
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        {% if msg %}
+                            <span class="alert-heading">{{ msg }}</span>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>
