@@ -75,6 +75,7 @@ function serviceprovidersignup() {
         if (this.readyState == 4 && this.status == 200) {
             var output = this.response;
             alert(output);
+            window.location.href="index"
         }
     };
     xml.open('POST', 'insertserviceprovider', true);
@@ -90,7 +91,8 @@ function serviceproviderlogin() {
         if (this.readyState == 4 && this.status == 200) {
             var output = this.response;
             if (output=="1"){
-                window.location.href="merchantdashboaard";
+                // var memail=document.getElementById('email').value;
+                window.location.href="merchantdashboaard?";
             }
             else{
                 alert("Invalid Login")

@@ -19,6 +19,7 @@ from views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('delete_session',delete_session),
     path('index',index),
     path('services',services),
     path('about',about),
@@ -33,6 +34,8 @@ urlpatterns = [
     path('fetchadminforupdate',fetchadmindetailsforupdate),
     path('updateadmin',updateadmins),
     path('adminlogin',adminlogin),
+    path('adminlogin2',adminlogin2),
+    path('admindashboard',admindashboard),
     path('forgetpassword',forgetpassword),
     path('searchuser',searchuser),
     path('changepassword',changepassword),
@@ -57,6 +60,19 @@ urlpatterns = [
     path('insertserviceprovider',insertserviceprovider),
     path('searchservice1',searchservice1),
     path('searchservice2',searchservice2),
-    path('demomodel',demomodel)
+    path('demomodel',demomodel),
+    path('getmerchantdetails',getmerchantdetails),
+    path('getmerchantavailbality',getmerchantavailbality),
+    path('gotopaymentpage',gotopaymentpage),
+    path('inserttodb',inserttodb),
+    path('viewappointments',viewappointments),
+    path('statusdone', statusdone),
+    path('viewuserorders',viewuserorders),
+    path('vieworders',vieworders),
+    path('viewserviceforrating',viewserviceforrating),
+    path('ratingdemo',ratingdemo),
+    path('AddRating',AddRating),
+    path('getAverageRating',getAverageRating)
+
     # path('signup2',signup2),
 ]

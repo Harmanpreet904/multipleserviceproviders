@@ -11,6 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # Main Admin Who handles all Management
+
+
 def addadmin(request):
     return render(request, "manageadmin.html")
 
@@ -72,8 +74,12 @@ def updateadmins(request):
     return HttpResponseRedirect('viewadmin')
 
 
-@csrf_exempt
 def adminlogin(request):
+    return render(request, 'adminlogin.html')
+
+
+@csrf_exempt
+def adminlogin2(request):
     if request.method == 'POST':
         conn = Connect('127.0.0.1', 'root', '', 'msp')
         email = request.POST["email"]
@@ -83,12 +89,18 @@ def adminlogin(request):
         cr = conn.cursor()
         cr.execute(s)
         result = cr.fetchone()
+        print(result)
+
         if result:
-            request.session['e'] = email
-            return render(request, 'admindashboard.html')
+            request.session['adminemail'] = email
+            result1 = "1"
         else:
-            return render(request, 'adminlogin.html', {'message': 'Invalid User'})
-    return render(request, 'adminlogin.html')
+            result1 = "2"
+        return HttpResponse(result1)
+
+
+def admindashboard(request):
+    return render(request, 'admindashboard.html')
 
 
 @csrf_exempt
@@ -145,7 +157,7 @@ def searchuser(request):
         cr.execute(s)
         result = cr.fetchall()
         for row in result:
-            if data == row[0:]:
+            if data == row[0]:
                 d = {'email': row[0], 'password': row[1], 'type': row[2], 'mobile': row[3]}
                 x.append(d)
         print(x)
@@ -154,7 +166,7 @@ def searchuser(request):
 
 @csrf_exempt
 def changepassword(request):
-    email = request.session['e']
+    email = request.session['adminemail']
     oldpassword = request.POST['oldpassword']
     newpassword = request.POST['newpassword']
     conn = Connect('127.0.0.1', 'root', '', 'msp')
@@ -300,6 +312,7 @@ def userlogin(request):
     cr.execute(query)
     result = cr.fetchone()
     if result:
+        request.session['useremail'] = email
         result1 = "1"
     else:
         result1 = "2"
@@ -338,7 +351,7 @@ def serviceproviderlogin(request):
     cr.execute(s)
     result = cr.fetchone()
     if result:
-        request.session['e'] = email
+        request.session['merchantemail'] = email
         result1 = "1"
     else:
         result1 = "2"
@@ -346,6 +359,8 @@ def serviceproviderlogin(request):
 
 
 def merchantdashboaard(request):
+    # memail=request.GET['merchantemail']
+    # request.session['memail']=memail
     return render(request, "merchantdashboard.html")
 
 
@@ -457,20 +472,142 @@ def searchservice2(request):
     return render(request, 'searchservice2.html', {'ar': s})
 
 
-
-
-def bookservice(request):
-    conn = Connect('127.0.0.1', 'root', '', 'msp')
-    s1=request.GET['s1']
-    s2=request.GET['s2']
-    s3=request.GET['s3']
-    s4=request.GET['s4']
-    s5=request.GET['s5']
-    mobile = request.GET['mobile']
+def getmerchantdetails(request):
     email = request.GET['email']
-    address= request.GET['address']
-    pincode = request.GET['pincode']
-    return
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    query1 = f"select * from serviceproviders where email='{email}' "
+    cr = conn.cursor()
+    cr.execute(query1)
+    result = cr.fetchone()
+    m = []
+    m.append(result)
+    return JsonResponse(m, safe=False)
+
+
+def getmerchantavailbality(request):
+    email = request.GET['email']
+    date = request.GET['date']
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    query1 = f"select * from booking where memail='{email}' and bookingdate='{date}' "
+    cr = conn.cursor()
+    cr.execute(query1)
+    result = cr.fetchone()
+    if result != None:
+        return HttpResponse('notavailable')
+    else:
+        return HttpResponse('available')
+
+
+def gotopaymentpage(request):
+    totalcharges = request.GET['totalcharges']
+    memail = request.GET['memail']
+    serviceid = request.GET['serviceid']
+    date = request.GET['date']
+    d = {}
+    d['totalcharges'] = (float)(totalcharges) * (100)
+    d['memail'] = memail
+    d['serviceid'] = serviceid
+    d['date'] = date
+    return render(request, 'bookserviceandpay.html', {"ar": d})
+
+
+def inserttodb(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    memail = request.GET['memail']
+    serviceid = request.GET['serviceid']
+    totalcharges = request.GET['totalcharges']
+    usermobile = request.GET['usermobile']
+    useremail = request.GET['useremail']
+    useraddress = request.GET['useraddress']
+    bookingdate = request.GET['date']
+    status = "pending"
+    merchantmobile = []
+    query1 = f"select mobile from serviceproviders where email='{memail}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    mob = cr.fetchone()
+    merchantmobile.append(mob)
+
+    query2 = f"insert into booking values (NULL ,'{memail}','{serviceid}','{usermobile}','{useremail}','{useraddress}','{totalcharges}','{status}','{bookingdate}')"
+    cr = conn.cursor()
+    cr.execute(query2)
+    conn.commit()
+
+    usermessage = "Your Service is Booked\nService Id:" + str(
+        serviceid) + "Payment Done Online\n ,Total Charges:\n" + str(totalcharges) / 100 + "Merchant Mobile:\n" + str(
+        merchantmobile) + "\nBooking Date:" + str(bookingdate)
+    usermessage = usermessage.replace(" ", "%20")
+    usermessage = usermessage.replace(":", "%58")
+    usermessage = usermessage.replace(",", "%58")
+    usermessage = usermessage.replace("\n", "%0x0a")
+
+    conn = http.client.HTTPConnection('server1.vmm.education')
+    conn.request('GET',
+                 "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + usermessage + "&phone_numbers=" + usermobile)
+    response = conn.getresponse()
+    print(response)
+    merchantmessage = "You have an appointment on date:" + str(bookingdate) + "\nService ID:" + str(
+        serviceid) + "\nCustomer Mobile:" + str(usermobile) + "\nAddress:" + str(useraddress)
+    merchantmessage = merchantmessage.replace(" ", "%20")
+    merchantmessage = merchantmessage.replace(":", "%20")
+    merchantmessage = merchantmessage.replace("\n", "%Ox0a20")
+
+    conn = http.client.HTTPConnection('server1.vmm.education')
+    conn.request('GET',
+                 "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + merchantmessage + "&phone_numbers=" + str(
+                     merchantmobile))
+    # request.session['useremail']=useremail
+    return render(request, 'Bookingdetail.html', {"ar": usermessage})
+
+
+def viewappointments(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    # merchantemail=request.GET['merchantemail']
+    memail = request.session['merchantemail']
+    datefrom = request.GET['datefrom']
+    dateto = request.GET['dateto']
+    query1 = f"select * from booking where memail='{memail}' and bookingdate BETWEEN '{datefrom}' and '{dateto}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    result = cr.fetchall()
+    x = []
+    print(x)
+    for row in result:
+        x.append(row)
+    return JsonResponse(x, safe=False)
+
+
+@csrf_exempt
+def statusdone(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    memail = request.session['merchantemail']
+    stsdone = "done"
+    bookingid = request.POST['bookingid']
+    query = f"update booking set status='{stsdone}' where bookingid='{bookingid}' and memail='{memail}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    conn.commit()
+    return HttpResponse('viewappointments')
+
+
+def viewuserorders(request):
+    return render(request, 'viewuserorders.html')
+
+
+def vieworders(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    useremail = request.session['useremail']
+    # bookingid = request.POST['bookingid']
+    query = f"select * from booking where useremail='{useremail}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    result = cr.fetchall()
+    x = []
+    print(x)
+    for row in result:
+        x.append(row)
+    return JsonResponse(x, safe=False)
+
 
 def demomodel(request):
     return render(request, 'demomodel.html')
@@ -502,3 +639,48 @@ def gallery(request):
 
 def typography(request):
     return render(request, 'typography.html')
+
+
+def viewserviceforrating(request):
+    serviceid = request.GET['serviceid']
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    query = f"select * from merchantservices where serviceid='{serviceid}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    row = cr.fetchone()
+    d = {
+        "serviceid": row[0], "merchant": row[1], "services": row[2], "price": row[3], "servicedescription": row[4],
+        "photo": row[5],
+    }
+    return render(request, 'servicedescription.html', {"row": d})
+
+
+def ratingdemo(request):
+    return render(request, 'ratingdemo.html')
+
+
+def AddRating(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    serviceid = request.GET['serviceid']
+    print(serviceid)
+    score = (float)(request.GET['score'])
+    review = request.GET['review']
+    s = f"insert into rating values (NULL ,'{score}','{serviceid}','{review}')"
+    print(s)
+    cr = conn.cursor()
+    cr.execute(s)
+    conn.commit()
+    return HttpResponse('success')
+
+
+def getAverageRating(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    serviceid = request.GET['serviceid']
+    avg = 0
+    s = f"SELECT avg(rating) FROM rating where serviceid='{serviceid}'"
+    cr = conn.cursor()
+    cr.execute(s)
+    result = cr.fetchone()
+    print('fffffffffffffff ', result[0])
+    avg = result[0]
+    return HttpResponse(avg)

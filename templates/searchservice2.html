@@ -9,6 +9,7 @@
     <script src="{% static 'myjs/signup.js' %}"></script>
     <script>
         var s0,s1,s2,s3,s4,s5;
+        var price=0;
         function openmodal(r0, r1, r2, r3, r4, r5) {
             s0=r0;
             s1=r1;
@@ -28,24 +29,62 @@
                 r4 +
                 "<br><br><br> "
                 + r5 ;
+            var ans2="";
+             var xml = new XMLHttpRequest();
+    xml.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var output = JSON.parse(this.response);
+            var mobile=output[0][0];
+            var business=output[0][3];
+            var address=output[0][5];
+            var timing=output[0][6];
+             price=output[0][7];
+
+              ans2 = "<label>"+"<strong>"+ "Merchant Details:" +"</strong>" +"</label>"
+                    +"<br>"
+                +"<i>"+mobile+"</i>" +
+                "<br><br><br> " +
+                business +
+                "<br><br><br>" +
+                address +
+                "<br><br><br> " +
+                timing +
+                "<br><br><br> "
+                + price;
+
+
+
             document.getElementById('servicedetail').innerHTML = ans;
+            document.getElementById('merchantdetail').innerHTML = ans2;
             $('#myModal').modal('show');
+
+        }
+    };
+    xml.open('GET', 'getmerchantdetails?email='+r1, true);
+    xml.send();
+
+
+
         }
 function bookservice() {
-    var mobile = document.getElementById('mobile');
-    var email = document.getElementById('email');
-    var address = document.getElementById('address');
-    var pincode = document.getElementById('pincode');
-    {#var xml = new XMLHttpRequest();#}
-    {#   xml.onreadystatechange = function () {#}
-    {#   if (this.readyState == 4 && this.status == 200) {#}
-    {#   var output = this.response;#}
-    {#   alert(output);#}
-    {#   #}
+            var totalcharges=0;
+            totalcharges=parseFloat(price)+parseFloat(s3);
+           var date=document.getElementById('bookingdate').value;
+ var xml = new XMLHttpRequest();
+    xml.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var res=this.responseText.trim();
+            if(res=="available"){
+window.location.href="gotopaymentpage?totalcharges="+totalcharges+"&memail="+s1+"&serviceid="+s0+"&date="+date;
+            }
+            else{
+                alert('merchant unavailable on this date');
+            }
 
-    window.location.href="bookservice?s1="+s1+"&s2="+s2+"&s3="+s3+"&s4="+s4+"&s5="+s5+"&mobile="+mobile+"&email="+email+"&address="+address+"&pincode="+pincode;
-    {#xml.open('GET', 'bookservice?s1='+s1+"&s2="+s2+"&s3="+s3+"&s4="+s4+"&s5="+s5+"&mobile="+mobile+"&email="+email+"&address="+address+"&pincode="+pincode, true);#}
-    {#xml.send(book);#}
+        }
+    };
+    xml.open('GET', 'getmerchantavailbality?email='+s1+"&date="+date, true);
+    xml.send();
 
 
 }
@@ -94,40 +133,24 @@ function bookservice() {
                         <h3 style="justify-content: center">Service Description</h3>
                         <div id="servicedetail">
                         </div>
-
-
                     </div>
                     <hr>
                     <div class="col-sm-6">
-
-                        <h4>Please Fill the Following Detail to Book Service</h4>
-
-                        <form action="">
-                            <div class="form-group">
-                                <label for="mobile"><strong>mobile</strong></label>
-                                <input type="number" class="form-control " id="mobile" name="mobile">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email"><strong>E-mail</strong></label>
-                                <input type="email" class="form-control " id="email" name="email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="address"><strong>Address</strong></label>
-                                <textarea name="address" id="address" cols="5" rows="2" class="form-control"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="pincode"><strong>Pincode</strong></label>
-                                <input type="number" maxlength="6" minlength="6" class="form-control " id="pincode" name="pincode">
-                            </div>
-                            <div class="form-group">
-
-                                <button type="button" class=" btn btn-info btn float-right" onclick="bookservice()">Book</button>
-                            </div>
-                        </form>
+                       <h3 style="justify-content: center">Available Merchant</h3>
+                        <div id="merchantdetail">
+                        </div>
                     </div>
+
+                </div>
+                <div class="row">
+                    <form class="inline">
+                        <div class="form-group">
+                            <input type="date" id="bookingdate"  class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="button"  class="btn btn-success" onclick="bookservice()" value="Pay Now And Book"/>
+                        </div>
+                    </form>
 
                 </div>
 

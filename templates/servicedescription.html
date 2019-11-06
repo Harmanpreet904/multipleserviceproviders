@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+        <script src="{% static 'js/jquery.min.js'%}" type="text/javascript"></script>
+        <script src="{% static  'myjs/jquery.rateyo.min.js'%}" type="text/javascript"></script>
+        <link href="{% static 'myjs/jquery.rateyo.min.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body onload="getavg('old','{{ row.serviceid }}')">
+{#{% include 'headers.html' %}#}
+
+            <h1>{{ row.serviceid }}</h1>
+            {{ row.merchant }}
+            {{ row.services }}
+            {{ row.servicedescription }}
+            {{ row.servicedescription }}
+                                    <img src="{% static 'media/merchantservices/' %}{{ row.photo }}" alt="" width="250" height="150">
+{#<input type="hidden" value="{{ row.serviceid }}" name="serviceid" id="serviceid">#}
+
+ReVIEW
+<input type="text" id="review" class="input-group w-25">
+{#<input type="hidden" value="{{ row.serviceid }}" name="serviceid" id="serviceid">#}
+
+
+
+
+
+{#            -----------------------------------------------------------------------------#}
+            <!--div that shows rating bar-->
+<div class="col-sm-4 col-sm-offset-2" style="text-align: center">
+                <label>Add New Rating</label>
+            </div>
+            <div class="col-sm-2 col-sm-offset-3">
+                <center><div id="giverating"></div></center>
+            </div>
+            <h4 class="col-sm-2" id="newratingtext"></h4>
+
+
+<div class="col-sm-4" style="text-align: center">
+                <label>Average Rating</label>
+            </div>
+            <!--div that shows a average rating-->
+            <div class="col-sm-2">
+                <center><div id="averagerating"></div></center>
+            </div>
+            <h4 class="col-sm-2" id="ratingtext"></h4>
+
+
+
+<script>
+    var serviceid;
+            /////Create Rating Bar and add onclick listener/////
+            $('#giverating').rateYo({
+                halfStar: true,
+                onSet: function (rating, rateYoInstance)
+                {
+                    addRating(rating);
+                }
+            });
+
+            /////Create Average Rating Bar/////
+            $('#averagerating').rateYo({
+                rating: 0,
+                readOnly: true
+            });
+            document.getElementById('ratingtext').innerHTML = '0/5';
+            /////Function to get Average Rating from Database//////
+            function getavg(from,id)
+            {
+                serviceid=id;
+                var xml = new XMLHttpRequest();
+                xml.onreadystatechange = function ()
+                {
+                    if (xml.readyState == 4 && xml.status == 200)
+                    {
+                        var response = xml.responseText.trim();
+                                  response=parseFloat(response);
+                        response=Math.round(response * 100) / 100;
+                        alert("average: " + response);
+                        /////Create rating bar that shows average rating/////
+                        if (from == 'new')
+                        {
+                            $('#averagerating').rateYo({
+                                rating: response,
+                                readOnly: true
+                            });
+                            document.getElementById('ratingtext').innerHTML = response + '/5';
+                        } else
+                        {
+                            $('#averagerating').rateYo('rating', response);
+                            document.getElementById('ratingtext').innerHTML = response + '/5';
+                        }
+                    }
+                };
+                xml.open('GET', 'getAverageRating?serviceid='+serviceid, true);
+                xml.send();
+            }
+            ////Function to Add Rating to Database//////
+            function addRating(score)
+            {
+                {#alert('score: ' + score);#}
+                {#var serviceid=document.getElementById('serviceid')#}
+                {#alert(serviceid);#}
+                var review=document.getElementById('review').value;
+                var xml = new XMLHttpRequest();
+                xml.onreadystatechange = function ()
+                {
+                    if (xml.readyState == 4 && xml.status == 200)
+                    {
+                        var response = xml.responseText.trim();
+
+                        if (response == "success")
+                        {
+                            getavg('old',serviceid);
+                        } else
+                        {
+                            alert("Failed to add rating");
+                        }
+                    }
+                };
+                xml.open('GET', 'AddRating?score=' + score+"&serviceid="+serviceid+"&review="+review, true);
+                xml.send();
+                document.getElementById('newratingtext').innerHTML = score + '/5';
+            }
+        </script>
+
+</body>
+</html>

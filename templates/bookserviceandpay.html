@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h4>Please Fill the Following Detail to Book Service</h4>
+    <form action="inserttodb" method="GET">
+        {% csrf_token %}
+        <input type="hidden" name="memail" value="{{ ar.memail }}"/>
+        <input type="hidden" name="serviceid" value="{{ ar.serviceid }}"/>
+        <input type="hidden" name="totalcharges" value="{{ ar.totalcharges }}"/>
+        <input type="hidden" name="date" value="{{ ar.date }}">
+        <div class="form-group">
+            <label for="mobile"><strong>Mobile</strong></label>
+            <input type="number" class="form-control " id="mobile" name="usermobile">
+        </div>
+        <div class="form-group">
+            <label for="email"><strong>E-mail</strong></label>
+            <input type="email" class="form-control " id="email" name="useremail">
+        </div>
+        <div class="form-group">
+            <label for="address"><strong>Address</strong></label>
+            <textarea name="useraddress" id="address" cols="5" rows="2" class="form-control"></textarea>
+        </div>
+
+
+        <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="rzp_test_96HeaVmgRvbrfT"
+                data-amount="{{ ar.totalcharges }}"
+                data-buttontext="Pay And Book Service"
+                data-name="MSP"
+                data-description="Thank You for payment with us."
+                data-image="{% static '/media/Categoryphotos/1.jpg' %}"
+                data-prefill.name="harmanpreet singh"
+                data-prefill.email="harmanpreet904@gmail.com"
+                data-theme.color="#9acfea"
+        ></script>
+
+    </form>
+
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

@@ -60,9 +60,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a class="nav-link " href="contact">Contact</a>
       </li>
 
-<li class="w3">
-                            <a href="index" class="nav-link" >Log Out</a>
-                        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="viewuserorders">View Orders</a>
+          <a class="dropdown-item" href="index">Log Out</a>
+
+        </div>
+      </li>
+
+{#<li class="w3">#}
+{#                            <a href="index" class="nav-link" >Log Out</a>#}
+{#                        </li>#}
 
     </ul>
   </div>
@@ -119,6 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //banner-slider -->
 </div>
 </header>
+{#{% include 'usernavbar.html' %}#}
 <section class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2">
 <div class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2">
 <div class="container">

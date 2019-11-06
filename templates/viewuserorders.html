@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
-    <title>MerchantDashboard</title>
+    <title>User Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Fast Service a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -21,7 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- header -->
     <div class="header-w3l">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">Merchant Dashboard</a>
+            <a class="navbar-brand" href="#">User Dashboard</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,24 +30,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="index">Home </a>
+                        <a class="nav-link" href="userindex">Home </a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View</a>
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            My Account
+                        </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="" onclick="checkappointments()">Appointments</a>
+                            <a class="dropdown-item" href="viewuserorders">View Orders</a>
+                            <a class="dropdown-item" href="index">Log Out</a>
+
                         </div>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link selected" href="merchantservices">Add Services</a>
-                    </li>
-
-                    <li class="w3">
-                        <a href="index" class="nav-link">LogOut</a>
                     </li>
 
                 </ul>
@@ -77,16 +72,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </header>
 
 <section class="services  py-lg-5 py-md-4 py-md-3 py-2">
-    <h1 class="text-center">Appointments</h1><br>
-    <input type="hidden" value="{{ request.session.merchantemail }}" name="merchantemail" id="merchantemail">
+    <h1 class="text-center">My Orders</h1><br>
+    <input type="hidden" value="{{ request.session.useremail }}" name="useremail" id="useremail">
 
     <label for="selectdate">Select Date:</label>
     &nbsp&nbsp&nbspFROM<input type="date" name="datefrom" id="datefrom" class="form-check-inline w-25">
     TO<input type="date" name="dateto" id="dateto" class="form-check-inline w-25">
-    <button onclick="viewappointments()" class="btn btn-success ">GO</button>
+    <button onclick="vieworders()" class="btn btn-success ">GO</button>
 
 
-    <table class="table table-hover table-striped" id="viewappointments">
+    <table class="table table-hover table-striped" id="vieworders">
 
         {#            <div id="viewdate"></div>#}
         {#            <tbody ></tbody>#}
@@ -302,7 +297,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //scrolling script -->
 <!--//start-smoth-scrolling -->
 <script>
-    function viewappointments() {
+    function vieworders() {
         var datefrom = document.getElementById('datefrom').value;
         var dateto = document.getElementById('dateto').value;
         var xml = new XMLHttpRequest();
@@ -319,9 +314,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 s += "<th>" + "Customer Email " + "</th>"
                 s += "<th>" + "Customer Address" + "</th>"
                 s += "<th>" + "Total Charges" + "</th>"
-                s += "<th>" + "Status" + "</th>"
+                {#s += "<th>" + "Status" + "</th>"#}
                 s += "<th>" + "Booking Date" + "</th>"
-                s += "<th>" + "Action" + "</th>"
+                s += "<th>" + "Rating" + "</th>"
                 s += "</thead>"
                 for (var i = 0; i < output.length; i++) {
                     s += "<tr>";
@@ -332,39 +327,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     s += "<td>" + output[i][4] + "</td>";
                     s += "<td>" + output[i][5] + "</td>";
                     s += "<td>" + output[i][6] + "</td>";
-                    s += "<td>" + output[i][7] + "</td>";
+                    {#s += "<td>" + output[i][7] + "</td>";#}
                     s += "<td>" + output[i][8] + "</td>";
-                    s += "<td><button type='button' class='btn btn-warning' onclick='statusdone(" + '"' + output[i][0] + '"' + ")'><strong class='fas fa-check-circle'></strong></button></td> ";
+                    s += "<td><button type='button' class='btn btn-warning' onclick='rating(" + '"' + output[i][2] + '"' + ")'><strong class='fas fa-star'></strong></button></td> ";
                     s += "</tr>"
-                    document.getElementById('viewappointments').innerHTML = s;
+                    document.getElementById('vieworders').innerHTML = s;
                 }
             }
         };
-        xml.open('GET', 'viewappointments?datefrom=' + datefrom + "&dateto=" + dateto, true);
+        xml.open('GET', 'vieworders?datefrom=' + datefrom + "&dateto=" + dateto, true);
         xml.send();
     }
 
-    function statusdone(bookingid) {
 
-        var fordata = new FormData();
-        fordata.append('bookingid', bookingid);
-        var xml = new XMLHttpRequest();
-        xml.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var output = this.response;
-                alert(output);
-                viewappointments();
-            }
-        };
-        xml.open("POST", "statusdone", true);
-        xml.send(fordata);
-        }
+    function rating(serviceid) {
+
+        window.location.href="viewserviceforrating?serviceid="+serviceid;
+
+
+    }
+
+
 </script>
 
-{#<script>#}
-{#$(document).ready(function () {#}
-{#    viewappointments()#}
-})
-{#</script>#}
+
 </body>
 </html>

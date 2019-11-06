@@ -79,6 +79,13 @@
                     Password</strong></a>
                 <button type="button" onclick="serviceproviderlogin()">Sign In</button>
             </div>
+            <div>
+                <hr style="border-color: whitesmoke;margin-top: 25px">
+            </div>
+                <h3 style="color: whitesmoke;margin-top: 30px">Not Having Account?</h3>
+            <div class="raw">
+                <button type="button" onclick="merchantsignup()" class="float-left"><i class="fas fa-user-plus"></i></button>
+            </div>
         </form>
     </div>
 </div>
@@ -119,7 +126,12 @@
 
     </div>
 </div>
+<script>
+    function merchantsignup() {
+        window.location.href = "merchantsignup"
 
+    }
+</script>
 
 {% include 'footer.html' %}
 
