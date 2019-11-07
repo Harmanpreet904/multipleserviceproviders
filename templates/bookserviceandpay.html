@@ -1,30 +1,113 @@
+{#{% include 'headers.html' %}#}
 <!DOCTYPE html>
 <html lang="en">
 {% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+        <link href="{% static 'indexcss/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link href="{% static 'indexcss/fontawesome-all.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.11.2-web/css/all.css' %}">
+    <link href="{% static 'indexcss/easy-responsive-tabs.css' %}" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="{% static 'indexcss/flexslider.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'indexcss/style_common.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'indexcss/style1.css' %}"/>
+    <link href="{% static 'mycss/bookserviceandpay.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <script src="{% static 'myjs/signup.js' %}"></script>
+     <style>
+        body{
+            background: url("../static/indeximages/3.jpg") no-repeat;
+        }
+         label{
+             color: palegreen;
+         }
+         .pos{
+             position: relative;
+             top: 0;
+
+         }
+
+
+    </style>
 </head>
 <body>
-<div class="container">
-    <h4>Please Fill the Following Detail to Book Service</h4>
+<header>
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index">Multiple Services Provider</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services">Services</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="gallery">Gallery</a>
+                        <a class="dropdown-item" href="typography">Typography</a>
+
+                        <a class="dropdown-item" href="error">Error</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="contact">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="viewuserorders">View Orders</a>
+                        <a class="dropdown-item" href="index">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr style="border-color: gray;margin-top: 2%">
+</header>
+
+    <!-- //header -->
+
+
+<div class="container " style=" position: relative;top: 0;">
+    <h4 style="color: lightcoral;font-weight: bolder;margin-bottom: 2%">Please Fill the Following Detail to Book Service</h4>
     <form action="inserttodb" method="GET">
         {% csrf_token %}
-        <input type="hidden" name="memail" value="{{ ar.memail }}"/>
+        <input type="hidden" name="merchantmobile" id="merchantmobile" value="{{ ar.merchantmobile }}">
+        <input  type="hidden" name="memail" value="{{ ar.memail }}"/>
         <input type="hidden" name="serviceid" value="{{ ar.serviceid }}"/>
         <input type="hidden" name="totalcharges" value="{{ ar.totalcharges }}"/>
         <input type="hidden" name="date" value="{{ ar.date }}">
-        <div class="form-group">
+        <div class=" form-group">
             <label for="mobile"><strong>Mobile</strong></label>
-            <input type="number" class="form-control " id="mobile" name="usermobile">
+            <input type="number" class="tr form-control w-25 " id="mobile" name="usermobile">
         </div>
         <div class="form-group">
             <label for="email"><strong>E-mail</strong></label>
-            <input type="email" class="form-control " id="email" name="useremail">
+            <input type="email" class="form-control w-25" id="email" name="useremail">
         </div>
         <div class="form-group">
             <label for="address"><strong>Address</strong></label>
-            <textarea name="useraddress" id="address" cols="5" rows="2" class="form-control"></textarea>
+            <textarea name="useraddress" id="address" cols="5" rows="2" class="form-control w-25"></textarea>
         </div>
 
 

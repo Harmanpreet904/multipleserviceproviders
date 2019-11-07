@@ -17,16 +17,71 @@
             background: url("../static/indeximages/2.jpg") no-repeat;
 
         }
+        .mrg{
+            margin-top: 10%;
+        }
+
     </style>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-{#{% include 'usernavbar.html' %}#}
+<header>
+    <!-- header -->
+    <nav class="bg navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Multiple Services Provider</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services">Services</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="gallery">Gallery</a>
+                        <a class="dropdown-item" href="typography">Typography</a>
+
+                        <a class="dropdown-item" href="error">Error</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="contact">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="viewuserorders">View Orders</a>
+                        <a class="dropdown-item" href="index">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+</header>
 
 
 <div class="container">
-    <div class="row form-group">
+    <div class="row mrg form-group">
         <div class="col-sm-4 text-right">
             <label for="city" style="color: whitesmoke;font-weight: bolder" >Select Your City</label>
         </div>
@@ -320,6 +375,6 @@ function showSlides(n) {
 <!-- //scrolling script -->
 <!--//start-smoth-scrolling -->
 
-{#{% include 'footer.html' %}#}
+{% include 'footer.html' %}
 </body>
 </html>

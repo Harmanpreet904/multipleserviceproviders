@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 0;
 	font-weight:normal;
 	font-family: 'Roboto', sans-serif;
-		
+
 }
 p {
 	margin: 0;
@@ -38,7 +38,7 @@ p {
 	line-height:1.8em;
 	font-size:13px;
 	font-family: 'Open Sans', sans-serif;
-	
+
 }
 .row{
 	margin:0px;
@@ -472,7 +472,7 @@ a:focus, a:hover {
     margin: 0 5px;
 }
 nav.navbar.navbar-expand-lg.navbar-light {
-    position: absolute;
+    position: sticky;
     top: 0px;
     z-index: 9;
 	width:97%;
@@ -544,21 +544,21 @@ nav.navbar.navbar-expand-lg.navbar-light {
 .letter.out {
   transform: rotateX(90deg);
   transition: transform 0.90s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  
+
 }
 
 .letter.behind {
   transform: rotateX(-90deg);
- 
+
 }
 .letter.in {
   transform: rotateX(0deg);
   transition: transform 0.90s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  
+
 }
 .wisteria {
   color: #fff;
-  
+
 }
 .navbar-light .navbar-brand {
     color: #e4ad99;
@@ -815,7 +815,7 @@ h3.heading.mb-lg-4.mb-md-3.mb-sm-2.mb-2 {
 }
 section.about h4 {
     font-size: 30px;
-    
+
 }
 .about a {
     font-size: 25px;
@@ -827,7 +827,7 @@ section.about h4 {
     margin-top: 65px;
 }
 /*--team--*/
-.flex-slider{	
+.flex-slider{
 	background:#222227;
 	padding: 70px 0 165px 0;
 }
@@ -1607,7 +1607,7 @@ section.skills.py-lg-5.py-md-4.py-md-3.py-2 {
 	-moz-border-radius: 3px;
 	-o-border-radius: 3px;
 	-ms-border-radius: 3px;
-	border-radius: 3px; 
+	border-radius: 3px;
 }
 .skillbar-title {
     position: absolute;
@@ -1766,7 +1766,7 @@ h3.tittle.text-center.mb-3 {
 .label {
 	font-weight: 300 !important;
 	border-radius:4px;
-}  
+}
 .grid_5{
 	background:none;
 	padding:2em 0;
@@ -2043,7 +2043,7 @@ h4.w3ls-title.text-center.text-uppercase.pb-md-5.pb-4 {
 .wrapper {
     margin: 15px 0;
 }
-.social-icons.icon-circle .fab{ 
+.social-icons.icon-circle .fab{
     border-radius: 50%;
 }
 .social-icons.icon-rounded .fab{
@@ -2057,26 +2057,26 @@ h4.w3ls-title.text-center.text-uppercase.pb-md-5.pb-4 {
     color: #FFF;
     -webkit-box-shadow: 1px 1px 1px #333;
     -moz-box-shadow: 1px 1px 1px #333;
-    box-shadow: 0px 0px 1px #333; 
+    box-shadow: 0px 0px 1px #333;
 }
-.social-icons.icon-zoom .fab:hover, .social-icons.icon-zoom .fab:active { 
+.social-icons.icon-zoom .fab:hover, .social-icons.icon-zoom .fab:active {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
-.social-icons.icon-zoom .fab:hover, .social-icons.icon-zoom .fab:active { 
+.social-icons.icon-zoom .fab:hover, .social-icons.icon-zoom .fab:active {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 i.fab.fa-linkedin-in {
     background-color: #0077B5;
-} 
+}
 i.fab.fa-twitter {
     background-color: #00aced;
 }
@@ -2111,7 +2111,7 @@ section.footer h3 {
 @media screen and (max-width: 1440px){
 .w3_ms1 {
     padding: 1em;
-}	
+}
 }
 @media screen and (max-width: 1080px){
 .w3_ms1 p {
@@ -2123,7 +2123,7 @@ section.footer h3 {
 }
 .wthree_testimonials_grid_main img {
     width: 93%;
-}	
+}
 }
 @media screen and (max-width: 1024px){
 .w3_ms8 {
@@ -2149,12 +2149,12 @@ section.footer h3 {
 }
 .w3_ms6{
 	flex: 0 0 50%;
-    max-width: 50%;	
+    max-width: 50%;
 }
 .w3_ms4{
 	flex: 0 0 50%;
-    max-width: 50%;	
-}	
+    max-width: 50%;
+}
 }
 @media screen and (max-width: 991px){
 .navbar-light .navbar-toggler {
@@ -2187,7 +2187,7 @@ a.dropdown-item {
 }
 .slider-img-2 {
     min-height: 600px;
-}	
+}
 .slider-img-3 {
     min-height: 600px;
 }
@@ -2227,7 +2227,7 @@ a.dropdown-item {
 @media screen and (max-width: 900px){
 .portfolio-area li {
     width: 260px;
-}	
+}
 }
 @media screen and (max-width: 800px){
 .w3_ms1 {
@@ -2242,7 +2242,7 @@ a.dropdown-item {
 }
 .portfolio-area li {
     width: 220px;
-}	
+}
 }
 @media screen and (max-width: 768px){
 .w3_ban {
@@ -2280,7 +2280,7 @@ h3.tittle.text-center.mb-3 {
 .header h1 {
     font-size: 40px;
     letter-spacing: 2px;
-}	
+}
 }
 @media screen and (max-width: 736px){
 .stats_left {
@@ -2320,14 +2320,14 @@ section.footer h3 {
 }
 .portfolio-area li {
     width: 195px;
-}	
+}
 }
 @media screen and (max-width: 667px){
 .modal-content {
     width: 555px;
 }
 .price-grid {
-    width: 46%;   
+    width: 46%;
 }
 .wthree {
     margin: 0% 0% 0% 25%;
@@ -2349,21 +2349,21 @@ button.btn.btn-primary {
 }
 .w3-main {
     margin: 0 3vw;
-}	
-} 
+}
+}
 @media screen and (max-width: 640px){
 .wthree_testimonials_grid_main img {
     width: 93%;
 }
 .portfolio-area li {
     width: 265px;
-}	
+}
 }
 @media screen and (max-width: 600px){
 .portfolio-area li {
     margin-left: 130px;
-}	
-}  
+}
+}
 @media screen and (max-width: 568px){
 .slider-img-3 {
     min-height: 500px;
@@ -2434,7 +2434,7 @@ section.footer h3 {
 h3.heading.text-center.text-uppercase.mb-lg-5.mb-md-4.mb-sm-3.mb-3 {
     font-size: 30px;
     letter-spacing: 0px;
-}	
+}
 }
 @media screen and (max-width: 480px){
 .w3_mg {
@@ -2500,7 +2500,7 @@ section.about h4 {
 }
 h1.bootstrap-heading {
     font-size: 28px;
-}	
+}
 }
 @media screen and (max-width: 414px){
 .modal-content {
@@ -2509,7 +2509,7 @@ h1.bootstrap-heading {
 .slider_banner_info p {
     letter-spacing: 0px;
 }
-	
+
 }
 @media screen and (max-width: 384px){
 .modal-content {
@@ -2546,11 +2546,11 @@ h1.bootstrap-heading {
 }
 .w3_ms7 h4 {
     font-size: 30px;
-    
+
 }
 .w3_ms4 h4 {
     font-size: 30px;
-    
+
 }
 h3.w3l-title {
     font-size: 35px;
@@ -2564,7 +2564,7 @@ section.footer h3 {
 }
 .portfolio-area li {
     margin-left: 10px;
-}	
+}
 }
 @media screen and (max-width: 320px){
 .modal-content {
@@ -2639,7 +2639,7 @@ p.w3_dwn {
 h4.w3ls-title.text-center.text-uppercase.pb-md-5.pb-4 {
     font-size: 25px;
     letter-spacing: 0px;
-}	
+}
 }
 
 .buttonInside{

@@ -9,6 +9,8 @@ from django.http import *
 from pymysql import *
 from django.views.decorators.csrf import csrf_exempt
 
+import time
+
 
 # Main Admin Who handles all Management
 
@@ -346,7 +348,8 @@ def serviceproviderlogin(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
     email = request.POST['email']
     password = request.POST['password']
-    s = f"select * from serviceproviders where email='{email}' and password='{password}'"
+    status="done"
+    s = f"select * from serviceproviders where email='{email}' and password='{password}' and status='{status}'"
     cr = conn.cursor()
     cr.execute(s)
     result = cr.fetchone()
@@ -499,6 +502,7 @@ def getmerchantavailbality(request):
 
 
 def gotopaymentpage(request):
+    merchantmobile=request.GET['mobile']
     totalcharges = request.GET['totalcharges']
     memail = request.GET['memail']
     serviceid = request.GET['serviceid']
@@ -508,11 +512,13 @@ def gotopaymentpage(request):
     d['memail'] = memail
     d['serviceid'] = serviceid
     d['date'] = date
+    d['merchantmobile']=merchantmobile
     return render(request, 'bookserviceandpay.html', {"ar": d})
 
 
 def inserttodb(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
+    merchantmobile=request.GET['merchantmobile']
     memail = request.GET['memail']
     serviceid = request.GET['serviceid']
     totalcharges = request.GET['totalcharges']
@@ -521,43 +527,36 @@ def inserttodb(request):
     useraddress = request.GET['useraddress']
     bookingdate = request.GET['date']
     status = "pending"
-    merchantmobile = []
-    query1 = f"select mobile from serviceproviders where email='{memail}'"
-    cr = conn.cursor()
-    cr.execute(query1)
-    mob = cr.fetchone()
-    merchantmobile.append(mob)
+    total = (float)(totalcharges) / 100
 
-    query2 = f"insert into booking values (NULL ,'{memail}','{serviceid}','{usermobile}','{useremail}','{useraddress}','{totalcharges}','{status}','{bookingdate}')"
+    query2 = f"insert into booking values (NULL ,'{memail}','{serviceid}','{usermobile}','{useremail}','{useraddress}','{total}','{status}','{bookingdate}')"
     cr = conn.cursor()
     cr.execute(query2)
     conn.commit()
-
-    usermessage = "Your Service is Booked\nService Id:" + str(
-        serviceid) + "Payment Done Online\n ,Total Charges:\n" + str(totalcharges) / 100 + "Merchant Mobile:\n" + str(
-        merchantmobile) + "\nBooking Date:" + str(bookingdate)
+    print(type(bookingdate))
+    usermessage="Your service is booked  service id "+str(serviceid)  +"payment done online total charges" +str(total)+  "Merchant Mobile" +str(merchantmobile)+  "BookingDate"+bookingdate
     usermessage = usermessage.replace(" ", "%20")
-    usermessage = usermessage.replace(":", "%58")
-    usermessage = usermessage.replace(",", "%58")
-    usermessage = usermessage.replace("\n", "%0x0a")
 
     conn = http.client.HTTPConnection('server1.vmm.education')
     conn.request('GET',
                  "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + usermessage + "&phone_numbers=" + usermobile)
     response = conn.getresponse()
     print(response)
-    merchantmessage = "You have an appointment on date:" + str(bookingdate) + "\nService ID:" + str(
-        serviceid) + "\nCustomer Mobile:" + str(usermobile) + "\nAddress:" + str(useraddress)
-    merchantmessage = merchantmessage.replace(" ", "%20")
-    merchantmessage = merchantmessage.replace(":", "%20")
-    merchantmessage = merchantmessage.replace("\n", "%Ox0a20")
 
+    merchantmessage = "You have an appointment on date " + str(bookingdate) + "Service ID " + str(
+        serviceid) + "Customer Mobile " + str(usermobile) + " Address " + str(useraddress)
+    merchantmessage = merchantmessage.replace(" ", "%20")
     conn = http.client.HTTPConnection('server1.vmm.education')
     conn.request('GET',
-                 "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + merchantmessage + "&phone_numbers=" + str(
-                     merchantmobile))
-    # request.session['useremail']=useremail
-    return render(request, 'Bookingdetail.html', {"ar": usermessage})
+                 "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + merchantmessage + "&phone_numbers=" + merchantmobile)
+    response = conn.getresponse()
+    print(response)
+
+
+    d={
+        "serviceid":serviceid,"totalcharges":total,"merchantmobile":merchantmobile,"bookingdate":bookingdate
+    }
+    return render(request, 'Bookingdetail.html', {"ar":d})
 
 
 def viewappointments(request):
@@ -684,3 +683,71 @@ def getAverageRating(request):
     print('fffffffffffffff ', result[0])
     avg = result[0]
     return HttpResponse(avg)
+
+def viewmerchants(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    stspending="pending"
+    query=f"select * from serviceproviders where status='{stspending}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    result = cr.fetchall()
+    merchants=[]
+    for row in result:
+        merchants.append(row)
+    return JsonResponse(merchants,safe=False)
+
+def approvedmerchants(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    stsdone = "done"
+    query1=f"select * from serviceproviders where status='{stsdone}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    result = cr.fetchall()
+    merchants = []
+    for row in result:
+        merchants.append(row)
+    return JsonResponse(merchants, safe=False)
+
+
+@csrf_exempt
+def merchantstatuspending(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    merchantemail = request.POST['merchantemail']
+    stspending = "pending"
+    query1 = f"update serviceproviders set status='{stspending}' where email='{merchantemail}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    conn.commit()
+    stsdone="done"
+    query2 = f"select * from serviceproviders where status='{stsdone}'"
+    result = cr.fetchall()
+    merchants = []
+    for row in result:
+        merchants.append(row)
+    return JsonResponse(merchants, safe=False)
+
+    return JsonResponse(merchants, safe=False)
+
+
+
+@csrf_exempt
+def merchantstatusdone(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    merchantemail=request.POST['merchantemail']
+    stsdone="done"
+    query1 = f"update serviceproviders set status='{stsdone}' where email='{merchantemail}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    conn.commit()
+
+    stspending="pending"
+    query2= f"select * from serviceproviders where status='{stspending}'"
+    result = cr.fetchall()
+    merchants = []
+    for row in result:
+        merchants.append(row)
+    return JsonResponse(merchants, safe=False)
+
+
+
+

@@ -9,6 +9,7 @@
     <script src="{% static 'myjs/signup.js' %}"></script>
     <script>
         var s0,s1,s2,s3,s4,s5;
+        var mobile=0;
         var price=0;
         function openmodal(r0, r1, r2, r3, r4, r5) {
             s0=r0;
@@ -34,7 +35,8 @@
     xml.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var output = JSON.parse(this.response);
-            var mobile=output[0][0];
+            mobile=output[0][0];
+            alert(mobile)
             var business=output[0][3];
             var address=output[0][5];
             var timing=output[0][6];
@@ -75,7 +77,7 @@ function bookservice() {
         if (this.readyState == 4 && this.status == 200) {
             var res=this.responseText.trim();
             if(res=="available"){
-window.location.href="gotopaymentpage?totalcharges="+totalcharges+"&memail="+s1+"&serviceid="+s0+"&date="+date;
+window.location.href="gotopaymentpage?totalcharges="+totalcharges+"&memail="+s1+"&serviceid="+s0+"&date="+date+"&mobile="+mobile;
             }
             else{
                 alert('merchant unavailable on this date');
@@ -95,7 +97,7 @@ window.location.href="gotopaymentpage?totalcharges="+totalcharges+"&memail="+s1+
 {% include 'headers.html' %}
 
 
-{{ ar }}
+{#{{ ar }}#}
 
 <div class="container">
     <div class="row">

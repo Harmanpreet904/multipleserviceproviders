@@ -1,11 +1,150 @@
+{% include 'headers.html' %}
 <!DOCTYPE html>
 <html lang="en">
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {#    <link href="{% static 'indexcss/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all">#}
+    <link href="{% static 'indexcss/fontawesome-all.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    {#    <link rel="stylesheet" href="{% static 'fontawesome-free-5.11.2-web/css/all.css' %}">#}
+    <link href="{% static 'indexcss/easy-responsive-tabs.css' %}" rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="{% static 'indexcss/flexslider.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'indexcss/style_common.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'indexcss/style1.css' %}"/>
+    <link href="{% static 'mycss/bookserviceandpay.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <script src="{% static 'myjs/signup.js' %}"></script>
+    <style>
+        body {
+            background: url("../static/indeximages/3.jpg") no-repeat;
+        }
+
+        label {
+            color: palegreen;
+        }
+
+
+    </style>
 </head>
 <body>
-        Sucessfully Booked
+<header>
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index">Multiple Services Provider</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services">Services</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="gallery">Gallery</a>
+                        <a class="dropdown-item" href="typography">Typography</a>
+
+                        <a class="dropdown-item" href="error">Error</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="contact">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="viewuserorders">View Orders</a>
+                        <a class="dropdown-item" href="index">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <hr style="border-color: gray;margin-top: 5%">
+</header>
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <h3 style="color:whitesmoke;">Service Booked SuccessFully</h3>
+                </div>
+                <br>
+                <br>
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th style="color: wheat"><h3>Booking Detail</h3></th>
+                        {#                            <th style="color: wheat">#</th>#}
+                        {#                            <th style="color: wheat" class="text-center">Price</th>#}
+                        {#                            <th  style="color: wheat" class="text-center">Total</th>#}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-md-9"><h4 style="color: palegreen"><em>Service Id</em></h4></td>
+                        <td class="col-md-1" style="text-align: center"><h4>{{ ar.serviceid }}</h4></td>
+                        {#                            <td class="col-md-1 text-center">$13</td>#}
+                        {#                            <td class="col-md-1 text-center">$26</td>#}
+                    </tr>
+                    <tr>
+                        <td class="col-md-9"><h4 style="color: palegreen"><em>Total Charges</em></h4></td>
+                        <td class="col-md-1" style="text-align: center"><h4>{{ ar.totalcharges }}</h4></td>
+                        {#                            <td class="col-md-1 text-center">$8</td>#}
+                        {#                            <td class="col-md-1 text-center">$8</td>#}
+                    </tr>
+                    <tr>
+                        <td class="col-md-9"><h4 style="color: palegreen"><em>Merchant Mobile</em></h4></td>
+                        <td class="col-md-1" style="text-align: center"><h4> {{ ar.merchantmobile }}</h4></td>
+                        {#                            <td class="col-md-1 text-center">$16</td>#}
+                        {#                            <td class="col-md-1 text-center">$48</td>#}
+                    </tr>
+                    <tr>
+                        <td class="col-md-9"><h4 style="color: palegreen"><em>Booking Date</em></h4></td>
+                        <td class="col-md-1" style="text-align: center"><h4> {{ ar.bookingdate }}</h4></td>
+                        {#                            <td class="col-md-1 text-center">$16</td>#}
+                        {#                            <td class="col-md-1 text-center">$48</td>#}
+                    </tr>
+
+                    <tr>
+                        <td class="text-right"><h3 style="color:lightcoral;">Payment Done Online</h3>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
 </body>
-</html>
