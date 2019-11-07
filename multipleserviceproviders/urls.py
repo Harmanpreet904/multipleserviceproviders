@@ -76,7 +76,9 @@ urlpatterns = [
     path('viewserviceforrating',viewserviceforrating),
     path('ratingdemo',ratingdemo),
     path('AddRating',AddRating),
-    path('getAverageRating',getAverageRating)
+    path('getAverageRating',getAverageRating),
+    path('getallcategory',getallcategory),
+    path('fetchcategory',fetchcategory)
 
     # path('signup2',signup2),
 ]

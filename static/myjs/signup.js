@@ -5,7 +5,8 @@ function sendotp() {
         alert("Please enter mobile No");
         return false;
     } else if (!(phone).match(mobi)) {
-        alert("Mobile no must contain minimum and not more than 10 digits ")
+        alert("Mobile no must contain minimum and not more than 10 digits ");
+        return false;
     } else {
         var xml = new XMLHttpRequest();
         xml.onreadystatechange = function () {
@@ -20,7 +21,7 @@ function sendotp() {
         xml.send(phone);
     }
 }
-
+//----------------------------------------------------------------------------------------------------------------
 function verifyotp() {
     var fromdata = new FormData();
     fromdata.append('sendedotp', document.getElementById('sendedotp').value);
@@ -153,9 +154,6 @@ function serviceproviderlogin() {
     } else if (!(email).match(emailReg)) {
         alert("Invalid E-mail !!!!!");
         return false;
-    } else if (!(password).match(passw)) {
-        alert("Enter atleast one Capital & one special symbol and length minimum 6");
-        return false;
     } else {
         var merchantlogin = new FormData();
         merchantlogin.append('email', document.getElementById('email').value);
@@ -280,9 +278,6 @@ function userlogin() {
         return false;
     } else if (!(email).match(emailReg)) {
         alert("Invalid E-mail !!!!!");
-        return false;
-    } else if (!(password).match(passw)) {
-        alert("Enter atleast one Capital & one special symbol and length minimum 6");
         return false;
     } else {
         var userlogin = new FormData();

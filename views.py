@@ -2,15 +2,11 @@ import math
 import random
 from typing import Dict, Any
 import http.client
-
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import *
 from django.http import *
 from pymysql import *
 from django.views.decorators.csrf import csrf_exempt
-
-import time
-
 
 # Main Admin Who handles all Management
 
@@ -87,7 +83,6 @@ def adminlogin2(request):
         email = request.POST["email"]
         password = request.POST["password"]
         s = f"select * from admins where email='{email}' and password='{password}'"
-        # s = "select * from admins where email='" +  + "' and password='" +  + "'"
         cr = conn.cursor()
         cr.execute(s)
         result = cr.fetchone()
@@ -124,7 +119,7 @@ def forgetpassword(request):
         else:
             return HttpResponse('Invalid Mobile')
 
-
+# *********************************************************************************************************************************************************************************************************************
 # Merchant forget password
 @csrf_exempt
 def forgetmerchantpassword(request):
@@ -146,7 +141,7 @@ def forgetmerchantpassword(request):
         else:
             return HttpResponse('Invalid Mobile')
 
-
+# ************************************************************************************************************************************************************************************************
 # Search Registered Users
 @csrf_exempt
 def searchuser(request):
@@ -258,9 +253,20 @@ def sendotp(request):
         request.session['phone'] = phone
         returnvalue = 'OTP Sent Successfully'
     else:
-        returnvalue = "Failed to Send OPT"
+        returnvalue = "Failed to Send OTP"
     return HttpResponse(returnvalue)
+def getallcategory(request):
+    print()
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    s = "select distinct categoryname from category"
+    cr = conn.cursor()
+    cr.execute(s)
+    result = cr.fetchall()
+    x = []
 
+    for row in result:
+        x.append(row[0])
+    return JsonResponse(x, safe=False)
 
 @csrf_exempt
 def verifyotp(request):
@@ -273,7 +279,6 @@ def verifyotp(request):
 
 
 def usersignup2(request):
-    # mobile=request.GET['mobile']
     return render(request, "signup2.html")
 
 
@@ -298,6 +303,9 @@ def insertuserdata(request):
         cr = conn.cursor()
         cr.execute(query)
         conn.commit()
+        conn = http.client.HTTPConnection('server1.vmm.education')
+        conn.request('GET',
+                     "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + password + "&phone_numbers=" + mobile)
         result = "Sucess Full Insert"
     except:
         result = "Fail"
@@ -348,7 +356,7 @@ def serviceproviderlogin(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
     email = request.POST['email']
     password = request.POST['password']
-    status="done"
+    status = "done"
     s = f"select * from serviceproviders where email='{email}' and password='{password}' and status='{status}'"
     cr = conn.cursor()
     cr.execute(s)
@@ -362,8 +370,6 @@ def serviceproviderlogin(request):
 
 
 def merchantdashboaard(request):
-    # memail=request.GET['merchantemail']
-    # request.session['memail']=memail
     return render(request, "merchantdashboard.html")
 
 
@@ -377,7 +383,6 @@ def merchantservices(request):
     print(x)
     for row in result:
         x.append(row[4])
-    # email=request.GET['email']
     return render(request, 'merchantservices.html', {'category': x})
 
 
@@ -427,6 +432,27 @@ def insertserviceprovider(request):
     cr.execute(query)
     conn.commit()
     return HttpResponse("SIGN UP SUCCESSFULLY PLEASE WAIT FOR VERIFICATION")
+def fetchcategory(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    cr = conn.cursor()
+    type=request.GET['type']
+    x = []
+    query2=""
+    if type=="all":
+        query2 = f"select * from category"
+    else:
+        s=request.GET['search']
+        query2 = "select * from category where categoryname LIKE '"+str(s)+"%'"
+    cr = conn.cursor()
+    cr.execute(query2)
+    result = cr.fetchall()
+    for row in result:
+        categorydict = {
+            "catname": row[0],
+            "photo": row[2]
+        }
+        x.append(categorydict)
+    return JsonResponse(x,safe=False)
 
 
 def searchservice1(request):
@@ -502,7 +528,7 @@ def getmerchantavailbality(request):
 
 
 def gotopaymentpage(request):
-    merchantmobile=request.GET['mobile']
+    merchantmobile = request.GET['mobile']
     totalcharges = request.GET['totalcharges']
     memail = request.GET['memail']
     serviceid = request.GET['serviceid']
@@ -512,13 +538,13 @@ def gotopaymentpage(request):
     d['memail'] = memail
     d['serviceid'] = serviceid
     d['date'] = date
-    d['merchantmobile']=merchantmobile
+    d['merchantmobile'] = merchantmobile
     return render(request, 'bookserviceandpay.html', {"ar": d})
 
 
 def inserttodb(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
-    merchantmobile=request.GET['merchantmobile']
+    merchantmobile = request.GET['merchantmobile']
     memail = request.GET['memail']
     serviceid = request.GET['serviceid']
     totalcharges = request.GET['totalcharges']
@@ -534,7 +560,8 @@ def inserttodb(request):
     cr.execute(query2)
     conn.commit()
     print(type(bookingdate))
-    usermessage="Your service is booked  service id "+str(serviceid)  +"payment done online total charges" +str(total)+  "Merchant Mobile" +str(merchantmobile)+  "BookingDate"+bookingdate
+    usermessage = "Your service is booked  service id " + str(serviceid) + "payment done online total charges" + str(
+        total) + "Merchant Mobile" + str(merchantmobile) + "BookingDate" + bookingdate
     usermessage = usermessage.replace(" ", "%20")
 
     conn = http.client.HTTPConnection('server1.vmm.education')
@@ -552,16 +579,14 @@ def inserttodb(request):
     response = conn.getresponse()
     print(response)
 
-
-    d={
-        "serviceid":serviceid,"totalcharges":total,"merchantmobile":merchantmobile,"bookingdate":bookingdate
+    d = {
+        "serviceid": serviceid, "totalcharges": total, "merchantmobile": merchantmobile, "bookingdate": bookingdate
     }
-    return render(request, 'Bookingdetail.html', {"ar":d})
+    return render(request, 'Bookingdetail.html', {"ar": d})
 
 
 def viewappointments(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
-    # merchantemail=request.GET['merchantemail']
     memail = request.session['merchantemail']
     datefrom = request.GET['datefrom']
     dateto = request.GET['dateto']
@@ -596,7 +621,6 @@ def viewuserorders(request):
 def vieworders(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
     useremail = request.session['useremail']
-    # bookingid = request.POST['bookingid']
     query = f"select * from booking where useremail='{useremail}'"
     cr = conn.cursor()
     cr.execute(query)
@@ -684,22 +708,24 @@ def getAverageRating(request):
     avg = result[0]
     return HttpResponse(avg)
 
+
 def viewmerchants(request):
     conn = Connect("127.0.0.1", "root", "", "msp")
-    stspending="pending"
-    query=f"select * from serviceproviders where status='{stspending}'"
+    stspending = "pending"
+    query = f"select * from serviceproviders where status='{stspending}'"
     cr = conn.cursor()
     cr.execute(query)
     result = cr.fetchall()
-    merchants=[]
+    merchants = []
     for row in result:
         merchants.append(row)
-    return JsonResponse(merchants,safe=False)
+    return JsonResponse(merchants, safe=False)
+
 
 def approvedmerchants(request):
     conn = Connect("127.0.0.1", "root", "", "msp")
     stsdone = "done"
-    query1=f"select * from serviceproviders where status='{stsdone}'"
+    query1 = f"select * from serviceproviders where status='{stsdone}'"
     cr = conn.cursor()
     cr.execute(query1)
     result = cr.fetchall()
@@ -718,7 +744,7 @@ def merchantstatuspending(request):
     cr = conn.cursor()
     cr.execute(query1)
     conn.commit()
-    stsdone="done"
+    stsdone = "done"
     query2 = f"select * from serviceproviders where status='{stsdone}'"
     result = cr.fetchall()
     merchants = []
@@ -729,25 +755,20 @@ def merchantstatuspending(request):
     return JsonResponse(merchants, safe=False)
 
 
-
 @csrf_exempt
 def merchantstatusdone(request):
     conn = Connect("127.0.0.1", "root", "", "msp")
-    merchantemail=request.POST['merchantemail']
-    stsdone="done"
+    merchantemail = request.POST['merchantemail']
+    stsdone = "done"
     query1 = f"update serviceproviders set status='{stsdone}' where email='{merchantemail}'"
     cr = conn.cursor()
     cr.execute(query1)
     conn.commit()
 
-    stspending="pending"
-    query2= f"select * from serviceproviders where status='{stspending}'"
+    stspending = "pending"
+    query2 = f"select * from serviceproviders where status='{stspending}'"
     result = cr.fetchall()
     merchants = []
     for row in result:
         merchants.append(row)
     return JsonResponse(merchants, safe=False)
-
-
-
-
