@@ -2,44 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2bb15f7-6a01-48de-b30d-ce06d72ce464" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/jq/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/jq/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/jq/jquery-3.3.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/jq/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/jquery-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/jquery-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/Userphotos/Harman9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/Userphotos/Harman9_eQ4XpUg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/Userphotos/Harman9_r5X3jaf.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multipleserviceproviders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/multipleserviceproviders/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Categoryphotos/bird1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Categoryphotos/bird1_QX4dtuj.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Userphotos/1_zwTXzfv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Userphotos/Harman9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/Userphotos/Harman9_UlxkJNu.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/Home electric work.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/Home electric work_lBYt2q9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/battery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/bulb1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/electrician.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/electrician_Hevqk48.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/electrician_L4fCngf.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/electrician_qdltGEX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/electrician_szrQf8V.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/electrician_yWuLWMx.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/paint1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/merchantservices/paint2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/myjs/addcategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myjs/addcategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/myjs/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myjs/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admindashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admindashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/searchservice1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/searchservice2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/typography.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typography.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/userindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminheader.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminheader.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -194,7 +164,7 @@
       <workItem from="1572347650456" duration="598000" />
       <workItem from="1572357404499" duration="11834000" />
       <workItem from="1572410144250" duration="141772000" />
-      <workItem from="1572934085998" duration="73007000" />
+      <workItem from="1572934085998" duration="74982000" />
     </task>
     <task id="LOCAL-00001" summary="all changes">
       <created>1573014615407</created>
@@ -210,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573110062134</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="all changes">
+      <created>1573120492430</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573120492430</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

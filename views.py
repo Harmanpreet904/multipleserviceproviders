@@ -299,6 +299,7 @@ def insertuserdata(request):
     fs.save(str('Userphotos/' + myfile.name), myfile)
     query = f"insert into users values ('{mobile}','{email}','{password}','{address}','{city}','{myfile}')"
     print(query)
+    password="Your Password is"+password
     try:
         cr = conn.cursor()
         cr.execute(query)
@@ -306,7 +307,9 @@ def insertuserdata(request):
         conn = http.client.HTTPConnection('server1.vmm.education')
         conn.request('GET',
                      "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + password + "&phone_numbers=" + mobile)
-        result = "Sucess Full Insert"
+        response=response = conn.getresponse()
+        print(response)
+        result = "Sucessfully Signup"
     except:
         result = "Fail"
     return HttpResponse(result)
