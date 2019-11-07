@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2bb15f7-6a01-48de-b30d-ce06d72ce464" name="Default Changelist" comment="all changes">
+    <list default="true" id="a2bb15f7-6a01-48de-b30d-ce06d72ce464" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/myjs/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myjs/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/addcategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addcategory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admindashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admindashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminheader.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminheader.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/adminlogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminlogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bookingdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bookingdetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bookserviceandpay.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bookserviceandpay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gallery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manageadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manageadmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/merchantdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/merchantdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/merchantservices.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/merchantservices.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publicnavbarindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publicnavbarindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/searchservice1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/searchservice2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/servicedescription.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/servicedescription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/serviceproviders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/serviceproviders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/serviceprovidersignIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/serviceprovidersignIn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/typography.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typography.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/updateadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateadmin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/userindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/viewadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/viewadmin.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +98,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -162,7 +190,7 @@
       <workItem from="1572347650456" duration="598000" />
       <workItem from="1572357404499" duration="11834000" />
       <workItem from="1572410144250" duration="141772000" />
-      <workItem from="1572934085998" duration="77712000" />
+      <workItem from="1572934085998" duration="86201000" />
     </task>
     <task id="LOCAL-00001" summary="all changes">
       <created>1573014615407</created>
@@ -192,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573122304355</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="new changed">
+      <created>1573136237533</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573136237533</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +249,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="all changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="all changes" />
+    <MESSAGE value="new changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="new changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

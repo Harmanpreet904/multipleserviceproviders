@@ -15,7 +15,7 @@
                     var ar = JSON.parse(this.response);
                     var ans = " <div class=\"row\" >";
                     for (var i = 0; i < ar.length; i++) {
-                        ans += "<div class=\"col-sm-4\">";
+                        ans += "<div class=\"col-sm-4\" >";
                         ans += "<div class=\"card mt-5\" style=\"width: 18rem\">";
                         ans += "<div class=\"justify-content-center text-center mt-3\">";
                         ans += "<img src=\"{% static 'media/Categoryphotos/' %}" + ar[i]['photo'] + "\" alt=\"\" width=\"250\" height=\"150\">";
@@ -63,11 +63,11 @@
     <style>
         body {
             background: url("../static/indeximages/2.jpg") no-repeat;
-
+            background-size: cover;
         }
         {#.conbg{#}
         {#    background: url("../static/indeximages/2.jpg") no-repeat;#}
-        {#}#}
+        {#     }     #}
 
         .mrg {
             margin-top: 10%;
