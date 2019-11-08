@@ -640,7 +640,16 @@ def demomodel(request):
 
 
 def index(request):
-    return render(request, 'index.html')
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    query=f"select DISTINCT city from serviceproviders"
+    cr=conn.cursor()
+    cr.execute(query)
+    result=cr.fetchall()
+    cities=[]
+    for city in result:
+        cities.append(city[0])
+
+    return render(request, 'index.html',{'ar':cities})
 
 
 def services(request):
@@ -767,11 +776,27 @@ def merchantstatusdone(request):
     cr = conn.cursor()
     cr.execute(query1)
     conn.commit()
-
     stspending = "pending"
     query2 = f"select * from serviceproviders where status='{stspending}'"
+    cr = conn.cursor()
+    cr.execute(query2)
     result = cr.fetchall()
     merchants = []
     for row in result:
         merchants.append(row)
     return JsonResponse(merchants, safe=False)
+
+@csrf_exempt
+def userenquiry(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    contactusername=request.POST['contactusername']
+    contactemail=request.POST['contactemail']
+    contactmessage=request.POST['contactmessage']
+    query=f"insert into userenquiry values (Null ,'{contactusername}','{contactemail}','{contactmessage}')"
+    cr=conn.cursor()
+    cr.execute(query)
+    conn.commit()
+    return HttpResponse('1')
+
+
+

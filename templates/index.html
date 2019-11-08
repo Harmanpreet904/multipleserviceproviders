@@ -14,18 +14,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             background-size: cover;
         }
     </style>
+
 </head>
-<body>
+<body onload="getallcategory()">
 <header>
 	<!-- header -->
 
 {% include 'publicnavbarindex.html' %}
 
+ <script src="{% static 'jq/jquery-3.3.1.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'jquery-ui.css' %}">
+    <script src="{% static 'jquery-ui.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+<script>
+
+    function getallcategory() {
+            var xml = new XMLHttpRequest();
+            xml.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var ar = JSON.parse(this.response);
+                    alert(ar);
+                    console.log(ar);
+                    $("#categorysearch").autocomplete({
+                        source: ar
+                    });
+                }
+            };
+            xml.open('GET', 'getallcategory', true);
+            xml.send();
+        }
+</script>
 	<!-- //header -->
 
 	<!-- banner -->
 	<!-- banner-slider -->
 	<div class="w3l_banner_info">
+
 		<div class="slider">
 			<div class="callbacks_container">
 				<ul class="rslides" id="slider3">
@@ -819,14 +843,6 @@ function showSlides(n) {
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
 								
 			$().UItoTop({ easingType: 'easeOutQuart' });
 								
@@ -849,7 +865,8 @@ function showSlides(n) {
 </script> 
 <!-- //scrolling script -->
 <!--//start-smoth-scrolling -->
-
+<script src="{% static 'jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.css' %}"></script>
+<script src="{% static 'jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
 
 </body>
 </html>

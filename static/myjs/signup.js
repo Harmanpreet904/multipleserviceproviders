@@ -309,3 +309,30 @@ function showpass() {
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function userenquiry() {
+    var username = document.getElementById('contactusername');
+    var useremail = document.getElementById('contactemail');
+    var usermessage = document.getElementById('contactmessage');
+    var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (username == "" || useremail == "" || usermessage == "") {
+        alert("Please Fill All Required Fields")
+        return false;
+    }
+    else{
+        var contactus=new FormData()
+        contactus.append('contactusername',document.getElementById('contactusername').value);
+        contactus.append('contactemail',document.getElementById('contactemail').value);
+        contactus.append('contactmessage',document.getElementById('contactmessage').value);
+        var xml = new XMLHttpRequest();
+        xml.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var output = this.response;
+                if(output=='1'){
+                    alert("Your request has been Submitted,We will Contact You Shortly")
+                }
+            }
+        };
+        xml.open('POST', 'userenquiry', true);
+        xml.send(contactus);
+    }
+}

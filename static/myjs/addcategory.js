@@ -66,21 +66,22 @@ function deletecategory(category) {
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// function editcategory(category) {
-//         var fordata = new FormData();
-//         fordata.append('catname', category);
-//         var xml = new XMLHttpRequest();
-//         xml.onreadystatechange = function () {
-//             if (this.readyState == 4 && this.status == 200) {
-//                 var output = this.response;
-//                 alert(output);
-//                 viewcategory();
-//             }
-//         };
-//         xml.open("POST", "editcategory", true);
-//         xml.send(fordata);
-// }
-//
+function editcategory(category) {
+        $("#editcategory").modal('show');
+        var fordata = new FormData();
+        fordata.append('catname', category);
+        var xml = new XMLHttpRequest();
+        xml.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var output = this.response;
+                alert(output);
+                viewcategory();
+            }
+        };
+        xml.open("POST", "editcategory", true);
+        xml.send(fordata);
+}
+
 
 
 //Send OTP For UserSignUP

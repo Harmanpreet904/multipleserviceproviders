@@ -78,7 +78,8 @@ urlpatterns = [
     path('AddRating',AddRating),
     path('getAverageRating',getAverageRating),
     path('getallcategory',getallcategory),
-    path('fetchcategory',fetchcategory)
+    path('fetchcategory',fetchcategory),
+    path('userenquiry',userenquiry)
 
     # path('signup2',signup2),
 ]
