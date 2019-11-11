@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2bb15f7-6a01-48de-b30d-ce06d72ce464" name="Default Changelist" comment="new changed">
-      <change afterPath="$PROJECT_DIR$/static/media/Categoryphotos/Ac-Repair_01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db279996-f846-4504-9085-3825349d18f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db279996-f846-4504-9085-3825349d18f0.xml" afterDir="false" />
+    <list default="true" id="a2bb15f7-6a01-48de-b30d-ce06d72ce464" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/msp (1).sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/alluserlinks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/merchantheader.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/userheader.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multipleserviceproviders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/multipleserviceproviders/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/myjs/addcategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myjs/addcategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/indexcss/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/indexcss/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/myjs/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myjs/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addcategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addcategory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gallery.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/publicnavbarindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publicnavbarindex.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/searchservice1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/searchservice2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/userindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/viewuserorders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/viewuserorders.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,9 +60,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -114,7 +109,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django server.multipleserviceproviders">
+    <configuration name="absolute" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multipleserviceproviders" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/files/python programs" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/files/python programs/absolute.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="harman2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multipleserviceproviders" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/files/python programs" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/files/python programs/harman2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="multipleserviceproviders" type="Python.DjangoServer" factoryName="Django server">
       <module name="multipleserviceproviders" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -139,6 +178,12 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.absolute" />
+        <item itemvalue="Python.harman2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -175,7 +220,8 @@
       <workItem from="1572347650456" duration="598000" />
       <workItem from="1572357404499" duration="11834000" />
       <workItem from="1572410144250" duration="141772000" />
-      <workItem from="1572934085998" duration="106536000" />
+      <workItem from="1572934085998" duration="108821000" />
+      <workItem from="1573313259497" duration="16237000" />
     </task>
     <task id="LOCAL-00001" summary="all changes">
       <created>1573014615407</created>
@@ -219,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573147734640</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new changed">
+      <created>1573214994153</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1573214994153</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,10 +303,13 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/viewuserorders.html</url>
           <line>342</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/multipleserviceproviders$harman2.coverage" NAME="harman2 Coverage Results" MODIFIED="1573317155091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/files/python programs" />
+    <SUITE FILE_PATH="coverage/multipleserviceproviders$absolute.coverage" NAME="absolute Coverage Results" MODIFIED="1573317961159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/files/python programs" />
   </component>
 </project>

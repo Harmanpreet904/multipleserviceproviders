@@ -320,16 +320,32 @@ def userlogin(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
     email = request.POST['email']
     password = request.POST['password']
-    query = f"select * from users where email='{email}' and password={password}"
-    cr = conn.cursor()
-    cr.execute(query)
-    result = cr.fetchone()
-    if result:
-        request.session['useremail'] = email
-        result1 = "1"
+    opr=request.POST['opr']
+    if opr=="simple":
+        query = f"select * from users where email='{email}' and password={password}"
+        cr = conn.cursor()
+        cr.execute(query)
+        result = cr.fetchone()
+        if result:
+            request.session['useremail'] = email
+            result1 = "1"
+        else:
+            result1 = "2"
+        return HttpResponse(result1)
     else:
-        result1 = "2"
-    return HttpResponse(result1)
+        print()
+        query = f"select * from users where email='{email}' and password={password}"
+        cr = conn.cursor()
+        cr.execute(query)
+        result = cr.fetchone()
+        if result:
+            request.session['useremail'] = email
+            result1 = "1"
+        else:
+            result1 = "2"
+        return HttpResponse(result1)
+
+
 
 
 def userindex(request):

@@ -271,6 +271,7 @@ function forget() {
 function userlogin() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    var opr=document.getElementById('opr').value;
     var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
     if (email == "" || password == "") {
@@ -283,12 +284,20 @@ function userlogin() {
         var userlogin = new FormData();
         userlogin.append('email', document.getElementById('email').value);
         userlogin.append('password', document.getElementById('password').value);
+        userlogin.append('opr', document.getElementById('opr').value);
+        userlogin.append('catname', document.getElementById('catnamel').value);
+        userlogin.append('city', document.getElementById('cityl').value);
+        alert(document.getElementById('opr').value);
         var xml = new XMLHttpRequest();
         xml.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var output = this.response;
                 if (output == "1") {
-                    window.location.href = "userindex"
+                    if (opr=="simple"){
+                    window.location.href = "userindex";}
+                    else{
+                        window.location.href = "searchservice2?city=" + document.getElementById('cityl').value+ "&catname=" + document.getElementById('catnamel').value;
+                    }
                 } else {
                     alert("Invalid Login")
                 }
@@ -299,7 +308,7 @@ function userlogin() {
         xml.send(userlogin);
     }
 }
-
+//*************************************************************************************************************************
 function showpass() {
   var x = document.getElementById("password");
   if (x.type === "password") {
@@ -308,14 +317,18 @@ function showpass() {
     x.type = "password";
   }
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///*************************************************************************************************************************
 function userenquiry() {
-    var username = document.getElementById('contactusername');
-    var useremail = document.getElementById('contactemail');
-    var usermessage = document.getElementById('contactmessage');
+    var username = document.getElementById('contactusername').value;
+    var useremail = document.getElementById('contactemail').value;
+    var usermessage = document.getElementById('contactmessage').value;
     var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (username == "" || useremail == "" || usermessage == "") {
         alert("Please Fill All Required Fields")
+        return false;
+    }
+    else if(!(useremail).match(emailReg)){
+        alert("Invalid Email!!!");
         return false;
     }
     else{
