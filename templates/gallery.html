@@ -25,62 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <header>
-    <!-- header -->
-    <div class="header-w3l">
-
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index">Multiple Services Provider</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="index">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery">Gallery</a>
-                    </li>
-
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="gallery" id="navbarDropdown" role="button"#}
-{#                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                            Gallery#}
-{#                        </a>#}
-{#                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-                            {#                            <a class="dropdown-item" href=""></a>#}
-{#                            <a class="dropdown-item" href="typography">Typography</a>#}
-{##}
-{#                            <a class="dropdown-item" href="error">Error</a>#}
-{#                        </div>#}
-{#                    </li>#}
-                    <li class="nav-item">
-                        <a class="nav-link " href="contact">Contact</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a href="#" class=" dropdown-item" data-toggle="modal" data-target="#myModal">User Login</a>
-                            <a class="dropdown-item" href="serviceprovidersignin">Merchant Login</a>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-
-        </nav>
-
-        <!-- //header -->
+   {%  include 'publicnavbarindex2.html' %}
 
         <!-- banner -->
         <!-- banner-slider -->
@@ -306,8 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container pb-lg-5 pb-mb-4 pb-sm-3 pb-2">
         <div class="w3_mg">
             <h3>Multiple Services Provider</h3>
-            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">We started our operations from Amritsar in 2016 with 3 servicemen. Today we have 2,500 servicemen across top 5 cities</p>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Contact Page
@@ -345,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <input type="text" name="phone" placeholder="Phone" required="">
                                                 </div>
                                                 <textarea name="Message" placeholder="Message" required=""></textarea>
-                                                <input type="submit" value="SUBMIT">
+                                                <input type="button" onclick="contactsubmit()" value="SUBMIT">
                                             </div>
                                         </form>
                                     </div>
@@ -396,7 +340,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="module form-module">
                             <div class="toggle">
                                 <i class="fa fa-times fa-pencil"></i>
-                                {#                                    <div class="tooltip">Register</div>#}
                             </div>
                             <div class="form">
                                 <h3>Login to your account</h3>
@@ -404,6 +347,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="text" id="email" name="email" placeholder="email" required="">
                                     <input type="password" id="password" name="Password" placeholder="Password"
                                            required="">
+                                    <input type="hidden" id="opr" name="opr" value="simple">
+                                    <input type="hidden" id="catnamel" name="catnamel">
+                                    <input type="hidden" id="cityl" name="cityl">
+                                    <input type="hidden" id="iflogin" name="iflogin"
+                                           value="{{ request.session.useremail }}">
                                     <button type="button" onclick="userlogin()">Login</button>
                                 </form>
                                 <div class="cta">
@@ -413,6 +361,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="otp">Create New Account</a>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -420,6 +370,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
+
 <!-- //bootstrap-pop-up for login and register-->
 
 <script src="{% static 'indexjs/jquery.min.v3.js' %}"></script>

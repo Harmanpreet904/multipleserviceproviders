@@ -25,62 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <header>
-    <!-- header -->
-    <div class="header-w3l">
-
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index">Multiple Services Provider </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="index">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery">Gallery</a>
-                    </li>
-
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="gallery" id="navbarDropdown" role="button"#}
-{#                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                            Gallery#}
-{#                        </a>#}
-{#                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                            <a class="dropdown-item" href=""></a>#}
-{#                            <a class="dropdown-item" href="typography">Typography</a>#}
-{##}
-{#                            <a class="dropdown-item" href="error">Error</a>#}
-{#                        </div>#}
-{#                    </li>#}
-                    <li class="nav-item">
-                        <a class="nav-link " href="contact">Contact</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a href="#" class=" dropdown-item" data-toggle="modal" data-target="#myModal">User Login</a>
-                            <a class="dropdown-item" href="serviceprovidersignin">Merchant Login</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-        </nav>
-
-        <!-- //header -->
-
+  {% include 'publicnavbarindex2.html' %}
         <!-- banner -->
         <!-- banner-slider -->
         <div class="w3l_banner_info">
@@ -111,36 +56,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="services py-lg-5 py-md-4 py-md-3 py-2" id="services">
         <div class="container">
             <h3 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Services</h3>
-            <p class="w3_dwn">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s.</p>
+            <p class="w3_dwn">We love living in a home which well maintained left, right and center.
+Use our services to keep your home in shape, 24 x7.</p>
             <div class="w3_rm">
-                <a href="#">READ MORE</a>
+{#                <a href="#">READ MORE</a>#}
             </div>
             <div class="w3l_abtdwn">
                 <div class="row">
                     <div class="col-md-3 col-sm-12 w3l_r1">
                         <i class="fa fa-crosshairs" aria-hidden="true"></i>
-                        <h4>Roofing</h4>
-                        <p class="agile_pgh">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                        <h4>Carpenter</h4>
+                        <p class="agile_pgh text-justify">Every household and office would have atleast 1 broken door
+                knob, hinges or handles. Unhung paintings vying for your attention.  We take responsibility for service delivery
+                from end to end. </p>
                     </div>
                     <div class="col-md-3 col-sm-12 w3l_c1">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                         <h4>Electrical</h4>
-                        <p class="agile_pgh">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
+                        <p class="agile_pgh text-justify">You want immediate services when your geyser or water motor
+                breaksdown for a sparkling switch or wiring fuse. We understand the urgency and provide express
+                electrician services in with a TAT of 2 hours.</p>
                     </div>
                     <div class="col-md-3 col-sm-12 w3l_l1">
                         <i class="fa fa-cog" aria-hidden="true"></i>
-                        <h4>Interior</h4>
-                        <p class="agile_pgh">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                        <h4>Welder</h4>
+                        <p class="agile_pgh text-justify">Now With thorough understanding of this business industry, we
+                are engrossed in providing Interior and Exterior Painting Service to our clients.At our place you can find all your solutions.</p>
                     </div>
                     <div class="col-md-3 col-sm-12 w3l_l1">
                         <i class="fa fa-cog" aria-hidden="true"></i>
                         <h4>Plumbing</h4>
-                        <p class="agile_pgh">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                        <p class="agile_pgh text-justify">Most of us surely find it frustrating to live with a broken
+                tap, leaky pipe,low water pressure during our long showers. But somehow we have no idea how to get it fixed. At MSP we make sure that only an experienced
+                serviceman knocks your door on the time promised.</p>
                     </div>
                 </div>
             </div>
@@ -149,86 +97,86 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </div>
 
-    <div class="priceing-table w3l">
-        <div class="wrap">
-            <div class="w3_ads">
-                <h1>Colorful Pricing Tables</h1>
-
-                <div class="priceing-table-main">
-                    <div class="price-grid">
-                        <div class="price-block agile">
-                            <div class="price-gd-top pric-clr1">
-                                <h4>Basic</h4>
-                                <h3>$5</h3>
-                                <h5>1 month</h5>
-                            </div>
-                            <div class="price-gd-bottom">
-                                <div class="price-list">
-                                    <ul>
-                                        <li>Full access</li>
-                                        <li>Documentation</li>
-                                        <li>Customers Support</li>
-                                        <li>Free Updates</li>
-                                        <li>Unlimited Services</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-selet pric-sclr1">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-grid">
-                        <div class="price-block agile">
-                            <div class="price-gd-top pric-clr2">
-                                <h4>Standard</h4>
-                                <h3>$10</h3>
-                                <h5>5 months</h5>
-                            </div>
-                            <div class="price-gd-bottom">
-                                <div class="price-list">
-                                    <ul>
-                                        <li>Full access</li>
-                                        <li>Documentation</li>
-                                        <li>Customers Support</li>
-                                        <li>Free Updates</li>
-                                        <li>Unlimited Services</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-selet pric-sclr2">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-grid wthree">
-                        <div class="price-block agile">
-                            <div class="price-gd-top pric-clr3">
-                                <h4>Premium</h4>
-                                <h3>$20</h3>
-                                <h5>Free for 2 months</h5>
-                            </div>
-                            <div class="price-gd-bottom">
-                                <div class="price-list">
-                                    <ul>
-                                        <li>Full access</li>
-                                        <li>Documentation</li>
-                                        <li>Customers Support</li>
-                                        <li>Free Updates</li>
-                                        <li>Unlimited Services</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-selet pric-sclr3">
-                                <a href="#">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+{#    <div class="priceing-table w3l">#}
+{#        <div class="wrap">#}
+{#            <div class="w3_ads">#}
+{#                <h1>Colorful Pricing Tables</h1>#}
+{##}
+{#                <div class="priceing-table-main">#}
+{#                    <div class="price-grid">#}
+{#                        <div class="price-block agile">#}
+{#                            <div class="price-gd-top pric-clr1">#}
+{#                                <h4>Basic</h4>#}
+{#                                <h3>$5</h3>#}
+{#                                <h5>1 month</h5>#}
+{#                            </div>#}
+{#                            <div class="price-gd-bottom">#}
+{#                                <div class="price-list">#}
+{#                                    <ul>#}
+{#                                        <li>Full access</li>#}
+{#                                        <li>Documentation</li>#}
+{#                                        <li>Customers Support</li>#}
+{#                                        <li>Free Updates</li>#}
+{#                                        <li>Unlimited Services</li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="price-selet pric-sclr1">#}
+{#                                <a href="#">Book Now</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="price-grid">#}
+{#                        <div class="price-block agile">#}
+{#                            <div class="price-gd-top pric-clr2">#}
+{#                                <h4>Standard</h4>#}
+{#                                <h3>$10</h3>#}
+{#                                <h5>5 months</h5>#}
+{#                            </div>#}
+{#                            <div class="price-gd-bottom">#}
+{#                                <div class="price-list">#}
+{#                                    <ul>#}
+{#                                        <li>Full access</li>#}
+{#                                        <li>Documentation</li>#}
+{#                                        <li>Customers Support</li>#}
+{#                                        <li>Free Updates</li>#}
+{#                                        <li>Unlimited Services</li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="price-selet pric-sclr2">#}
+{#                                <a href="#">Book Now</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="price-grid wthree">#}
+{#                        <div class="price-block agile">#}
+{#                            <div class="price-gd-top pric-clr3">#}
+{#                                <h4>Premium</h4>#}
+{#                                <h3>$20</h3>#}
+{#                                <h5>Free for 2 months</h5>#}
+{#                            </div>#}
+{#                            <div class="price-gd-bottom">#}
+{#                                <div class="price-list">#}
+{#                                    <ul>#}
+{#                                        <li>Full access</li>#}
+{#                                        <li>Documentation</li>#}
+{#                                        <li>Customers Support</li>#}
+{#                                        <li>Free Updates</li>#}
+{#                                        <li>Unlimited Services</li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="price-selet pric-sclr3">#}
+{#                                <a href="#">Book Now</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="clearfix"></div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 
 
 </section>
@@ -239,8 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container py-lg-5 py-md-4 py-md-3 py-2">
         <div class="w3_mg">
             <h3>Multiple Services Provider</h3>
-            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">We started our operations from Amritsar in 2016 with 3 servicemen. Today we have 2,500 servicemen across top 5 cities</p>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Conatct Page
@@ -312,46 +259,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </section>
-<!-- /Footer-->
-<!-- bootstrap-pop-up for login and register -->
 <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    Multiple Services Provider
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <section>
-                    <div class="modal-body">
-                        <div class="loginf_module">
-                            <div class="module form-module">
-                                <div class="toggle">
-                                    <i class="fa fa-times fa-pencil"></i>
-{#                                    <div class="tooltip">Register</div>#}
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Multiple Services Provider
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <section>
+                <div class="modal-body">
+                    <div class="loginf_module">
+                        <div class="module form-module">
+                            <div class="toggle">
+                                <i class="fa fa-times fa-pencil"></i>
+                            </div>
+                            <div class="form">
+                                <h3>Login to your account</h3>
+                                <form action="#" method="post">
+                                    <input type="text" id="email" name="email" placeholder="email" required="">
+                                    <input type="password" id="password" name="Password" placeholder="Password"
+                                           required="">
+                                    <input type="hidden" id="opr" name="opr" value="simple">
+                                    <input type="hidden" id="catnamel" name="catnamel">
+                                    <input type="hidden" id="cityl" name="cityl">
+                                    <input type="hidden" id="iflogin" name="iflogin"
+                                           value="{{ request.session.useremail }}">
+                                    <button type="button" onclick="userlogin()">Login</button>
+                                </form>
+                                <div class="cta">
+                                    <a href="#">Forgot password?</a>
                                 </div>
-                                <div class="form">
-                                    <h3>Login to your account</h3>
-                                    <form action="#" method="post">
-                                        <input type="text" id="email" name="email" placeholder="email" required="">
-                                        <input type="password" id="password" name="Password" placeholder="Password" required="">
-                                        <button type="button" onclick="userlogin()">Login</button>
-                                    </form>
-                                    <div class="cta">
-                                        <a href="#">Forgot password?</a>
-                                    </div>
-                                    <div>
-                                        <a href="otp">Create New Account</a>
-                                    </div>
+                                <div>
+                                    <a href="otp">Create New Account</a>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
     </div>
+</div>
+
 {#--------------------------------------------------------------------#}
 <script src="{% static 'indexjs/jquery.min.v3.js' %}"></script>
 <script src="{% static 'indexjs/bootstrap.min.js' %}"></script>

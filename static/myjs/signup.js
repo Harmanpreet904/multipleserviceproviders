@@ -21,6 +21,7 @@ function sendotp() {
         xml.send(phone);
     }
 }
+
 //----------------------------------------------------------------------------------------------------------------
 function verifyotp() {
     var fromdata = new FormData();
@@ -33,7 +34,7 @@ function verifyotp() {
             if (output == "sucess") {
                 alert(output);
                 var mobile = document.getElementById('phone').value;
-                window.location.href = "usersignup2?mobile=" + mobile;
+                window.location.href = "usersignup?mobile=" + mobile;
             } else {
                 alert("otp Not Matched")
             }
@@ -48,7 +49,7 @@ function verifyotp() {
 //----------------------------------------------------------------------------------------------------------------------
 
 function signup() {
-    var valmob = document.getElementById('mobile').value;
+    var valmob = str(document.getElementById('mobile').value);
     var email = document.getElementById('email').value;
     var address = document.getElementById('address').value;
     var city = document.getElementById('city').value;
@@ -188,11 +189,10 @@ function addmerchantservices() {
     if (email == "" || services == "" || price == "" || description == "" || photo == "") {
         alert("Please fill all required fields")
         return false;
-    }else if(!(email).match(emailReg)){
+    } else if (!(email).match(emailReg)) {
         alert("Invalid Email !!!!!")
         return false;
-    }
-    else{
+    } else {
         var addserivces = new FormData();
         addserivces.append('email', document.getElementById('email').value);
         addserivces.append('services', document.getElementById('services').value);
@@ -213,17 +213,15 @@ function addmerchantservices() {
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 function forgetmerchantpassword() {
-    var mobile=document.getElementById('mob').value;
+    var mobile = document.getElementById('mob').value;
     var mobi = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if(mobile==""){
+    if (mobile == "") {
         alert("Please Enter mobile no")
         return false;
-    }
-    else if(!(mobile).match(mobi)){
+    } else if (!(mobile).match(mobi)) {
         alert("Enter atleast one Capital & one special symbol and length minimum 6");
         return false;
-    }
-    else{
+    } else {
         var adduserdata = new FormData();
         adduserdata.append('mob', document.getElementById('mob').value);
         var xml = new XMLHttpRequest();
@@ -237,31 +235,30 @@ function forgetmerchantpassword() {
         xml.send(adduserdata);
     }
 }
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 //ADMIN LOGIN FORGET PASSWORD
 function forget() {
-    var mobile=document.getElementById('mob').value;
+    var mobile = document.getElementById('mob').value;
     var mobi = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if(mobile==""){
+    if (mobile == "") {
         alert("Please Enter mobile no")
         return false;
-    }
-    else if(!(mobile).match(mobi)){
+    } else if (!(mobile).match(mobi)) {
         alert("Enter atleast one Capital & one special symbol and length minimum 6");
         return false;
-    }
-    else{
-    var adduserdata = new FormData();
-    adduserdata.append('mob', document.getElementById('mob').value);
-    var xml = new XMLHttpRequest();
-    xml.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var output = this.response;
-            alert(output);
-        }
-    };
-    xml.open('POST', 'forgetpassword', true);
-    xml.send(adduserdata);
+    } else {
+        var adduserdata = new FormData();
+        adduserdata.append('mob', document.getElementById('mob').value);
+        var xml = new XMLHttpRequest();
+        xml.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var output = this.response;
+                alert(output);
+            }
+        };
+        xml.open('POST', 'forgetpassword', true);
+        xml.send(adduserdata);
     }
 }
 
@@ -271,9 +268,9 @@ function forget() {
 function userlogin() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
-    var opr=document.getElementById('opr').value;
+    var opr = document.getElementById('opr').value;
     var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    // var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
     if (email == "" || password == "") {
         alert("Fill all required Fields");
         return false;
@@ -286,6 +283,7 @@ function userlogin() {
         userlogin.append('password', document.getElementById('password').value);
         userlogin.append('opr', document.getElementById('opr').value);
         userlogin.append('catname', document.getElementById('catnamel').value);
+
         userlogin.append('city', document.getElementById('cityl').value);
         alert(document.getElementById('opr').value);
         var xml = new XMLHttpRequest();
@@ -293,10 +291,10 @@ function userlogin() {
             if (this.readyState == 4 && this.status == 200) {
                 var output = this.response;
                 if (output == "1") {
-                    if (opr=="simple"){
-                    window.location.href = "userindex";}
-                    else{
-                        window.location.href = "searchservice2?city=" + document.getElementById('cityl').value+ "&catname=" + document.getElementById('catnamel').value;
+                    if (opr == "simple") {
+                        window.location.href = "userindex";
+                    } else {
+                        window.location.href = "searchservice2?city=" + document.getElementById('cityl').value + "&catname=" + document.getElementById('catnamel').value;
                     }
                 } else {
                     alert("Invalid Login")
@@ -308,15 +306,17 @@ function userlogin() {
         xml.send(userlogin);
     }
 }
+
 //*************************************************************************************************************************
 function showpass() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
 }
+
 ///*************************************************************************************************************************
 function userenquiry() {
     var username = document.getElementById('contactusername').value;
@@ -326,21 +326,19 @@ function userenquiry() {
     if (username == "" || useremail == "" || usermessage == "") {
         alert("Please Fill All Required Fields")
         return false;
-    }
-    else if(!(useremail).match(emailReg)){
+    } else if (!(useremail).match(emailReg)) {
         alert("Invalid Email!!!");
         return false;
-    }
-    else{
-        var contactus=new FormData()
-        contactus.append('contactusername',document.getElementById('contactusername').value);
-        contactus.append('contactemail',document.getElementById('contactemail').value);
-        contactus.append('contactmessage',document.getElementById('contactmessage').value);
+    } else {
+        var contactus = new FormData()
+        contactus.append('contactusername', document.getElementById('contactusername').value);
+        contactus.append('contactemail', document.getElementById('contactemail').value);
+        contactus.append('contactmessage', document.getElementById('contactmessage').value);
         var xml = new XMLHttpRequest();
         xml.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var output = this.response;
-                if(output=='1'){
+                if (output == '1') {
                     alert("Your request has been Submitted,We will Contact You Shortly")
                 }
             }
@@ -349,3 +347,71 @@ function userenquiry() {
         xml.send(contactus);
     }
 }
+
+//****************************************************
+function gotocarpenter() {
+    var city = document.getElementById('city').value;
+    alert(city)
+    var iflogin = document.getElementById('iflogin').value;
+    alert(iflogin);
+    if (iflogin != "") {
+        var xml = new XMLHttpRequest();
+        window.location.href = "gotocarpenter?city=" + city;
+    } else {
+        document.getElementById('catnamel').value;
+        document.getElementById('cityl').value = city;
+        document.getElementById('opr').value = "gotocarpenter";
+        $('#signinuser').modal('show');
+    }
+
+}
+
+function gotoelectrician() {
+    var city = document.getElementById('city').value;
+    alert(city)
+    var iflogin = document.getElementById('iflogin').value;
+    alert(iflogin);
+    if (iflogin != "") {
+        var xml = new XMLHttpRequest();
+        window.location.href = "gotoelectrician?city=" + city;
+    } else {
+        document.getElementById('catname2').value = 'Electrician';
+        document.getElementById('cityl').value = city;
+        document.getElementById('opr').value = "gotoelectrician";
+        $('#signinuser').modal('show');
+    }
+
+}
+
+function gotoplumber() {
+    var city = document.getElementById('city').value;
+    alert(city)
+    var iflogin = document.getElementById('iflogin').value;
+    alert(iflogin);
+    if (iflogin != "") {
+        var xml = new XMLHttpRequest();
+        window.location.href = "gotoplumber?city=" + city;
+    } else {
+        document.getElementById('catname2').value;
+        document.getElementById('cityl').value = city;
+        document.getElementById('opr').value = "gotocarpenter";
+        $('#signinuser').modal('show');
+    }
+
+}
+
+function contactsubmit() {
+    var name = document.getElementById('name').value;
+    var lastname = document.getElementById('lastname').value;
+    var Email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var Message = document.getElementById('Message').value;
+    if (name == "" || lastname == "" || Email == "" || phone == "" || Message == "") {
+        alert("Please fill all required fileds.")
+        return false;
+    } else {
+        alert("We Will Contact You Shortly")
+        return false;
+    }
+}
+

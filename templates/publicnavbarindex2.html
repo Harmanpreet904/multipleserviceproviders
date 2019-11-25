@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'indexcss/style_common.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'indexcss/style1.css' %}"/>
     <link href="{% static 'indexcss/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
-{#    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">#}
-{#    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">#}
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'mycss/searchbar.css' %}">
     <script src="{% static 'myjs/signup.js' %}"></script>
     <style>
@@ -55,45 +55,32 @@
             </li>
 
 
-
             {#                        <li class="w3">#}
             <li class="nav-item dropdown">
                 {% if request.session.useremail %}
-{#          <h4 style="color: white">{{ request.session.useremail }}</h4>#}
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">My Account</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {#          <h4 style="color: white">{{ request.session.useremail }}</h4>#}
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">My Account</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <h5 style="font-size: small;color: #00aced">{{ request.session.useremail }}</h5>
-                    <a href="logout" class=" dropdown-item" >Logout</a>
+                    <a href="logout" class=" dropdown-item">Logout</a>
+                    {#                    <a class="dropdown-item" href="serviceprovidersignin">Merchant Login</a>#}
 
-        {%  elif request.session.useremail == null %}
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Sign In</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="#" class=" dropdown-item" data-toggle="modal" data-target="#myModal">User Login</a>
-                    <a class="dropdown-item" href="serviceprovidersignin">Merchant Login</a>
-                </div>
-              {% endif %}
+                {% elif request.session.useremail == null %}
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Sign In</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="#" class=" dropdown-item" data-toggle="modal" data-target="#myModal">User Login</a>
+                        <a class="dropdown-item" href="serviceprovidersignin">Merchant Login</a>
+                    </div>
+                {% endif %}
                 </div>
             </li>
-            </li>
-
         </ul>
     </div>
 
-    <div class="searchBox" style="margin-left: 5px;">
-
-        <input id="categorysearch" class="searchInput" type="text" name="" placeholder="Select Service">
-        <button class="searchButton" href="#" onclick="gotobook()">
-            <i class="fas fa-search">
-            </i>
-        </button>
-        <select id="city" name="city" style="background-color: grey;border-radius: 5px;padding-top: 4%">
-            {% for cty in ar %}
-                <option value="{{ cty }}">{{ cty }}</option>
-            {% endfor %}
-        </select>
-    </div>
 </nav>
 
 <script>
@@ -101,9 +88,9 @@
 
         var catname = document.getElementById('categorysearch').value;
         var city = document.getElementById('city').value;
-        var iflogin=document.getElementById('iflogin').value;
-        {#alert(iflogin);#}
-        if (iflogin!="") {
+        var iflogin = document.getElementById('iflogin').value;
+        alert(iflogin);
+        if (iflogin != "") {
 
             if (catname == "" || city == "") {
                 alert("please enter city and category!!");
@@ -112,11 +99,10 @@
                 var xml = new XMLHttpRequest();
                 window.location.href = "searchservice2?city=" + city + "&catname=" + catname;
             }
-        }
-        else{
-            document.getElementById('catnamel').value=catname;
-            document.getElementById('cityl').value=city;
-            document.getElementById('opr').value="gotoservice";
+        } else {
+            document.getElementById('catnamel').value = catname;
+            document.getElementById('cityl').value = city;
+            document.getElementById('opr').value = "gotoservice";
             $('#myModal').modal('show');
         }
 

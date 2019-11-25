@@ -1,0 +1,97 @@
+{% load staticfiles %}
+{% include 'newnavbar.html' %}
+
+
+<br>
+<br>
+<div class="container cont-back" >
+    <div class="row" style="">
+        <div class="col-sm-7 col-md-9">
+            <h2 style="color: wheat">Carpenter</h2>
+            <hr style="border-color: red">
+            <p style="text-align: justify;color: whitesmoke">Every household and office would have atleast 1 broken door
+                knob, hinges or handles. Unhung paintings vying for your attention. We consider carpentry to be the job
+                for experts, as it requires specialized tools and skills. We take responsibility for service delivery
+                from end to end. We help you customize or repair your furniture, doors and windows.</p>
+            <div class="post row">
+                <div class="col-md-3">
+                    <h5>Repair Furniture?</h5>
+                    <div>
+                        <img class="phresize " src="{% static 'indeximages/repairfurn.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>Hang Paintings?</h5>
+                    <div>
+                        <img class="phresize" src="{% static 'indeximages/hangpainting.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>Furniture Remodeling?</h5>
+                    <div>
+                        <img class="phresize" src="{% static 'indeximages/remodelingfurn.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>General Carpentry?</h5>
+                    <div>
+                        <img class="phresize" src="{% static 'indeximages/generalcarpentary.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-8">
+                    <h5 style="color: whitesmoke" class="float-sm-right">Select Your City To Book Your Service</h5>
+                </div>
+                <div class="col-sm-2">
+{#                    <input type="hidden">#}
+                    <select class="inline-group input-group" name="city" id="city">
+                        {% for city in ar %}
+                        <option value="{{ city  }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-sm-2 float-sm-left">
+                        <button class="btn btn-info btn-group b" onclick="gotocarpenter()">Go</button>
+                    </div>
+                <hr style="border-color: rebeccapurple">
+                <br><br>
+            <div style="margin-left: 2%" class="iframe-container">
+                <iframe width="400" height="315" src="https://www.youtube.com/embed/iR7-yLwlfhg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            </div>
+        </div>
+        <div class="col-sm-5 col-md-3">
+            <img src="{% static 'indeximages/carpenter3.jpg' %}" style="width: 262.5px;height: 262.5px"
+                 class="img-fluid img-responsive" alt="carpenter">
+            <div>
+                <br>
+                <h3 style="font-family: 'Bitstream Vera Sans Mono;'">Why Choose MSP</h3>
+                <hr style="border-color: gainsboro">
+            </div>
+            <div class="bg-light">
+                <img src="{% static 'indeximages/moneybackgurantee.png' %}" alt="reload your website">
+                <span style="font-weight: bold;color: rosybrown">Money Back Guarantee</span>
+                <p style="font-family: Tahoma;font-size: small">Reclaim your money if not satisfied with the quality of job done</p>
+                <hr style="border-color: rebeccapurple">
+            </div>
+            <div class="bg-light">
+                <img src="{% static 'indeximages/skillledserviceman.png' %}" alt="reload your website">
+                <span style="font-weight: bold;color: rosybrown;font-size: small">Only Skilled & Experienced Servicemen</span>
+                <p style="font-family: Tahoma;font-size: small">We take pride in deploying only trained and verified servicemen</p>
+                <hr style="border-color: rebeccapurple">
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+<footer id="footer">
+    <div class="container text-center wow zoomIn animated" data-wow-duration="700ms" data-wow-delay="300ms" style="visibility: visible; animation-duration: 700ms; animation-delay: 300ms; animation-name: zoomIn;">
+			<p>© 2019 <a href="#">MSP</a> All rights reserved.</p>
+            <p style="font-size:12px"><a href="#" target="_blank">Terms and Conditions</a></p>
+		</div>
+
+</footer>

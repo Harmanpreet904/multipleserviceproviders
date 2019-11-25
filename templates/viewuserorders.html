@@ -15,6 +15,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="{% static 'indexcss/merchantdashboard.css' %}" rel="stylesheet" type="text/css" media="all"/>
     <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <script src="{% static 'myjs/signup.js' %}"></script>
 </head>
 <body>
 <header>
@@ -39,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             My Account
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="viewuserorders">View Orders</a>
+{#                            <a class="dropdown-item" href="viewuserorders">View Orders</a>#}
                             <a class="dropdown-item" href="index">Log Out</a>
 
                         </div>
@@ -136,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <input type="text" name="phone" placeholder="Phone" required="">
                                                 </div>
                                                 <textarea name="Message" placeholder="Message" required=""></textarea>
-                                                <input type="submit" value="SUBMIT">
+                                                <input type="button" onclick="contactsubmit()" value="SUBMIT">
                                             </div>
                                         </form>
                                     </div>

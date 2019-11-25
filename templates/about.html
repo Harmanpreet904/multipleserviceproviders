@@ -16,93 +16,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <style>
-        body{
+        body {
             background-size: cover;
         }
     </style>
 </head>
 <body>
 <header>
-    <!-- header -->
-    <div class="header-w3l">
+    {% include 'publicnavbarindex2.html' %}
 
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index">Multiple Services Provider</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="index">Home </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services">Services</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery">Gallery</a>
-                    </li>
+    <div class="w3l_banner_info">
+        <div class="slider1">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider3">
+                    <li>
+                        <div class="slider1-img">
+                            <div class="slider_banner_info">
 
 
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="gallery" id="navbarDropdown" role="button"#}
-{#                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                            Gallery#}
-{#                        </a>#}
-{#                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                            <a class="dropdown-item" href=""></a>#}
-{#                            <a class="dropdown-item" href="typography">Typography</a>#}
-{##}
-{#                            <a class="dropdown-item" href="error">Error</a>#}
-{#                        </div>#}
-{#                    </li>#}
-                    <li class="nav-item">
-                        <a class="nav-link " href="contact">Contact</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a href="#" class=" dropdown-item" data-toggle="modal" data-target="#myModal">User Login</a>
-                            <a class="dropdown-item" href="serviceprovidersignin">Merchant Login</a>
+                            </div>
                         </div>
                     </li>
 
+
                 </ul>
             </div>
-
-        </nav>
-
-        <!-- //header -->
-
-        <!-- banner -->
-        <!-- banner-slider -->
-        <div class="w3l_banner_info">
-            <div class="slider1">
-                <div class="callbacks_container">
-                    <ul class="rslides" id="slider3">
-                        <li>
-                            <div class="slider1-img">
-                                <div class="slider_banner_info">
-
-
-                                </div>
-                            </div>
-                        </li>
-
-
-                    </ul>
-                </div>
-            </div>
         </div>
-        <!-- //banner-slider -->
+    </div>
+    <!-- //banner-slider -->
     </div>
 </header>
 
@@ -114,10 +55,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="row">
                 <div class="col-md-6 com-sm-6 w3three_al1">
                     <h4 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Take A Look About Our Company</h4>
-                    <p class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-                        1500s.</p>
-                    <a href="#">Read More</a>
+                    <p class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">MSP is our commitment to bring professionalism, good
+                        service and trust to the home repair service and maintenance business. We take immense pride in
+                        sending some of the most professional handymen to your homes to fix things that aren't working.
+                        We have fixed over 5,50,000 houses in our little over 5 years of existence so far.</p>
+                    {#                    <a href="#">Read More</a>#}
                 </div>
                 <div class="col-md-6 com-sm-6 w3three_al">
                     <img src="{% static 'indeximages/ab.jpg' %}" alt="" class="img-fluid">
@@ -149,25 +91,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-md-6 com-sm-6 w3three_al2">
                                         <div class="test-wel">
 
-                                            <p>Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam
-                                                aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.</p>
+                                            {#                                            <p>Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam#}
+                                            {#                                                aliquam kuytase uaeraquis autem vel eum iure#}
+                                            {#                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.</p>#}
                                             <ul>
                                                 <li>
                                                     <i class="fas fa-check">We Are FUN To Work With.</i>
 
-<p style="text-align: justify">Anyone can fix a computer, but the experience of working with the person helping you is so important (recall the last time you went to a nice restaurant vs. McDonalds). The MSP Team genuinely cares about every client. This drives us to provide absolute fanatical support of their systems.</p>
+                                                    <p style="text-align: justify">Anyone can fix a computer, but the
+                                                        experience of working with the person helping you is so
+                                                        important (recall the last time you went to a nice restaurant
+                                                        vs. McDonalds). The MSP Team genuinely cares about every client.
+                                                        This drives us to provide absolute fanatical support of their
+                                                        systems.</p>
                                                 </li>
                                                 <li>
                                                     <i class="fas fa-check">Security is Paramount</i>
-                                                    <p style="text-align: justify">At MSP we follow and enforce Security Best Practices for all our clients, as well as internally. Your Security is only as good as the weakest link in the chain. We educate our team and our clients on cyber security to keep networks safe. We got your back!</p>
+                                                    <p style="text-align: justify">At MSP we follow and enforce Security
+                                                        Best Practices for all our clients, as well as internally. Your
+                                                        Security is only as good as the weakest link in the chain. We
+                                                        educate our team and our clients on cyber security to keep
+                                                        networks safe. We got your back!</p>
                                                 </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
+                                                {#                                                <li>#}
+                                                {#                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text#}
+                                                {#                                                </li>#}
+                                                {#                                                <li>#}
+                                                {#                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text#}
+                                                {#                                                </li>#}
                                             </ul>
                                         </div>
                                     </div>
@@ -181,22 +132,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="row">
                                     <div class="col-md-6 com-sm-6 w3three_al4">
                                         <div class="test-wel">
-
-                                            <p>Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam
-                                                aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.</p>
                                             <ul>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check">We Are FUN To Work With.</i>
+
+                                                    <p style="text-align: justify">Anyone can fix a computer, but the
+                                                        experience of working with the person helping you is so
+                                                        important (recall the last time you went to a nice restaurant
+                                                        vs. McDonalds). The MSP Team genuinely cares about every client.
+                                                        This drives us to provide absolute fanatical support of their
+                                                        systems.</p>
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check">Security is Paramount</i>
+                                                    <p style="text-align: justify">At MSP we follow and enforce Security
+                                                        Best Practices for all our clients, as well as internally. Your
+                                                        Security is only as good as the weakest link in the chain. We
+                                                        educate our team and our clients on cyber security to keep
+                                                        networks safe. We got your back!</p>
                                                 </li>
                                             </ul>
                                         </div>
@@ -210,22 +163,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="row">
                                     <div class="col-md-6 com-sm-6 w3three_al6">
                                         <div class="test-wel">
-
-                                            <p>Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam
-                                                aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.</p>
                                             <ul>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check">We Are FUN To Work With.</i>
+
+                                                    <p style="text-align: justify">Anyone can fix a computer, but the
+                                                        experience of working with the person helping you is so
+                                                        important (recall the last time you went to a nice restaurant
+                                                        vs. McDonalds). The MSP Team genuinely cares about every client.
+                                                        This drives us to provide absolute fanatical support of their
+                                                        systems.</p>
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check">Security is Paramount</i>
+                                                    <p style="text-align: justify">At MSP we follow and enforce Security
+                                                        Best Practices for all our clients, as well as internally. Your
+                                                        Security is only as good as the weakest link in the chain. We
+                                                        educate our team and our clients on cyber security to keep
+                                                        networks safe. We got your back!</p>
                                                 </li>
                                             </ul>
                                         </div>
@@ -239,22 +194,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="row">
                                     <div class="col-md-6 com-sm-6 w3three_al8">
                                         <div class="test-wel">
-
-                                            <p>Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam
-                                                aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.</p>
                                             <ul>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check">We Are FUN To Work With.</i>
+
+                                                    <p style="text-align: justify">Anyone can fix a computer, but the
+                                                        experience of working with the person helping you is so
+                                                        important (recall the last time you went to a nice restaurant
+                                                        vs. McDonalds). The MSP Team genuinely cares about every client.
+                                                        This drives us to provide absolute fanatical support of their
+                                                        systems.</p>
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check">Security is Paramount</i>
+                                                    <p style="text-align: justify">At MSP we follow and enforce Security
+                                                        Best Practices for all our clients, as well as internally. Your
+                                                        Security is only as good as the weakest link in the chain. We
+                                                        educate our team and our clients on cyber security to keep
+                                                        networks safe. We got your back!</p>
                                                 </li>
                                             </ul>
                                         </div>
@@ -358,8 +315,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container py-lg-5 py-md-4 py-sm-3 py-2">
         <div class="w3_mg">
             <h3>Multiple Services Provider</h3>
-            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">We started our operations from Amritsar in 2016 with 3 servicemen.
+                Today we have 2,500 servicemen across top 5 cities</p>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Contact Page
@@ -397,7 +354,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <input type="text" name="phone" placeholder="Phone" required="">
                                                 </div>
                                                 <textarea name="Message" placeholder="Message" required=""></textarea>
-                                                <input type="submit" value="SUBMIT">
+                                                <input type="button"  onclick="contactsubmit()" value="SUBMIT">
                                             </div>
                                         </form>
                                     </div>
@@ -430,8 +387,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </section>
-<!-- /Footer-->
-<!-- bootstrap-pop-up for login and register -->
 <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -447,29 +402,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="module form-module">
                             <div class="toggle">
                                 <i class="fa fa-times fa-pencil"></i>
-                                <div class="tooltip">Register</div>
                             </div>
                             <div class="form">
                                 <h3>Login to your account</h3>
                                 <form action="#" method="post">
-                                    <input type="text" name="Username" placeholder="Username" required="">
-                                    <input type="password" name="Password" placeholder="Password" required="">
-                                    <input type="submit" value="Login">
+                                    <input type="text" id="email" name="email" placeholder="email" required="">
+                                    <input type="password" id="password" name="Password" placeholder="Password"
+                                           required="">
+                                    <input type="hidden" id="opr" name="opr" value="simple">
+                                    <input type="hidden" id="catnamel" name="catnamel">
+                                    <input type="hidden" id="cityl" name="cityl">
+                                    <input type="hidden" id="iflogin" name="iflogin"
+                                           value="{{ request.session.useremail }}">
+                                    <button type="button" onclick="userlogin()">Login</button>
                                 </form>
                                 <div class="cta">
                                     <a href="#">Forgot password?</a>
                                 </div>
+                                <div>
+                                    <a href="otp">Create New Account</a>
+                                </div>
                             </div>
-                            <div class="form">
-                                <h3>Create a new account</h3>
-                                <form action="#" method="post">
-                                    <input type="text" name="Username" placeholder="Username" required="">
-                                    <input type="password" name="Password" placeholder="Password" required="">
-                                    <input type="email" name="Email" placeholder="Email address" required="">
-                                    <input type="text" name="Phone" placeholder="Phone Number" required="">
-                                    <input type="submit" value="Register">
-                                </form>
-                            </div>
+
 
                         </div>
                     </div>
@@ -478,8 +432,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
-<!-- //bootstrap-pop-up for login and register-->
-
 <script src="{% static 'indexjs/jquery.min.v3.js' %}"></script>
 <script type="text/javascript" src="{% static 'indexjs/jquery-1.7.1.min.js' %}"></script> <!-- Team -->
 <script src="{% static 'indexjs/bootstrap.min.js' %}"></script>

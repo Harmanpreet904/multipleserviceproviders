@@ -20,7 +20,9 @@ from views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('delete_session',delete_session),
-    path('index',index),
+    path('',index),
+    path('index', index),
+
     path('services',services),
     path('about',about),
     path('contact',contact),
@@ -79,7 +81,19 @@ urlpatterns = [
     path('getAverageRating',getAverageRating),
     path('getallcategory',getallcategory),
     path('fetchcategory',fetchcategory),
-    path('userenquiry',userenquiry)
+    path('userenquiry',userenquiry),
+    path('carpenter',carpenter),
+    path('gotocarpenter',gotocarpenter),
+    path('electrician',electrician),
+    path('gotoelectrician',gotoelectrician),
+    path('plumber',plumber),
+    path('gotoplumber',gotoplumber),
+    path('welder',welder),
+    path('painter',painter),
+    path('fitter',fitter),
+    path('usersignup',usersignup),
+    path('logout',logout)
+
 
     # path('signup2',signup2),
 ]

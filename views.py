@@ -5,7 +5,7 @@ import http.client
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import *
 from django.http import *
-from pymysql import *
+from  pymysql import *
 from django.views.decorators.csrf import csrf_exempt
 
 # Main Admin Who handles all Management
@@ -237,6 +237,7 @@ def otp(request):
 
 
 def sendotp(request):
+    conn = connect('127.0.0.1', 'root', '', 'msp')
     phone = request.GET['phone']
     digits = "0123456789"
     OTP = ""
@@ -451,6 +452,7 @@ def insertserviceprovider(request):
     cr.execute(query)
     conn.commit()
     return HttpResponse("SIGN UP SUCCESSFULLY PLEASE WAIT FOR VERIFICATION")
+
 def fetchcategory(request):
     conn = Connect('127.0.0.1', 'root', '', 'msp')
     cr = conn.cursor()
@@ -495,7 +497,6 @@ def searchservice1(request):
             "photo": row[2]
         }
         y.append(categorydict)
-
     return render(request, 'searchservice1.html', {"city": x, "category": y})
 
 
@@ -533,6 +534,7 @@ def getmerchantdetails(request):
 
 
 def getmerchantavailbality(request):
+    # usermob=request.GET['usermob']
     email = request.GET['email']
     date = request.GET['date']
     conn = Connect('127.0.0.1', 'root', '', 'msp')
@@ -814,5 +816,148 @@ def userenquiry(request):
     conn.commit()
     return HttpResponse('1')
 
+def carpenter(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    carpenter='Carpenter'
+    query=f"select DISTINCT city from serviceproviders where category='{carpenter}'"
+    cr=conn.cursor()
+    cr.execute(query)
+    result=cr.fetchall()
+    c=[]
+    for row in result:
+        c.append(row[0])
+    return render(request,'carpenter.html',{'ar':c})
+
+def gotocarpenter(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    carpenter = 'Carpenter'
+    city = request.GET['city']
+    query1 = f"select * from serviceproviders where city='{city}' and category='{carpenter}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    result = cr.fetchall()
+    m = []
+    for merchant in result:
+        m.append(merchant[1])
+    s = []
+    for row in m:
+        query2 = f"select * from merchantservices where email='{row}'"
+        cr.execute(query2)
+        result2 = cr.fetchall()
+        for r in result2:
+            s.append(r)
+    return render(request, 'searchservice2.html', {'ar': s})
+
+def electrician(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    electrician = 'Electrician'
+    query = f"select DISTINCT city  from serviceproviders where category='{electrician}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    result = cr.fetchall()
+    c = []
+    for row in result:
+        c.append(row[0])
+    return render(request, 'electrician.html', {'ar': c})
 
 
+def gotoelectrician(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    electrician = 'Electrician'
+    city = request.GET['city']
+    query1 = f"select * from serviceproviders where city='{city}' and category='{electrician}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    result = cr.fetchall()
+    m = []
+    for merchant in result:
+        m.append(merchant[1])
+    s = []
+    for row in m:
+        query2 = f"select * from merchantservices where email='{row}'"
+        cr.execute(query2)
+        result2 = cr.fetchall()
+        for r in result2:
+            s.append(r)
+    return render(request, 'searchservice2.html', {'ar': s})
+
+def plumber(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    electrician = 'Plumber'
+    query = f"select DISTINCT city  from serviceproviders where category='{electrician}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    result = cr.fetchall()
+    c = []
+    for row in result:
+        c.append(row[0])
+    return render(request, 'plumber.html', {'ar': c})
+
+
+def gotoplumber(request):
+    conn = Connect('127.0.0.1', 'root', '', 'msp')
+    plumber = 'Plumber'
+    city = request.GET['city']
+    query1 = f"select * from serviceproviders where city='{city}' and category='{plumber}'"
+    cr = conn.cursor()
+    cr.execute(query1)
+    result = cr.fetchall()
+    m = []
+    for merchant in result:
+        m.append(merchant[1])
+    s = []
+    for row in m:
+        query2 = f"select * from merchantservices where email='{row}'"
+        cr.execute(query2)
+        result2 = cr.fetchall()
+        for r in result2:
+            s.append(r)
+    return render(request, 'searchservice2.html', {'ar': s})
+
+def welder(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    welder = 'Welder'
+    query = f"select DISTINCT city  from serviceproviders where category='{welder}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    result = cr.fetchall()
+    c = []
+    for row in result:
+        c.append(row[0])
+    return render(request, 'welder.html', {'ar': c})
+
+def painter(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    painter = 'Painter'
+    query = f"select DISTINCT city  from serviceproviders where category='{painter}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    result = cr.fetchall()
+    c = []
+    for row in result:
+        c.append(row[0])
+    return render(request, 'painter.html', {'ar': c})
+
+def fitter(request):
+    conn = Connect("127.0.0.1", "root", "", "msp")
+    fitter = 'Fitter'
+    query = f"select DISTINCT city  from serviceproviders where category='{fitter}'"
+    cr = conn.cursor()
+    cr.execute(query)
+    result = cr.fetchall()
+    c = []
+    for row in result:
+        c.append(row[0])
+    return render(request, 'fitter.html', {'ar': c})
+
+
+def usersignup(request):
+    return render(request,'usersignup.html')
+
+def logout(request):
+        del request.session['useremail']
+        return redirect(index)
+
+# def logout2(request):
+#     del request.session['merchantemail']
+#     return redirect(merchantdashboaard)

@@ -3,7 +3,7 @@
 <header>
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand" href="">Multiple Services Provider</a>
+        <a class="navbar-brand" href="index">Multiple Services Provider</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,6 +11,18 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery">Gallery</a>
+                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link" href="searchservice1">Book Services</a>
@@ -23,9 +35,9 @@
                         My Account
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <h5 style="color: #0c5460;font-weight: bolder;font-size: smaller;padding-left: 5px" >{{ request.session.useremail }}</h5>
+                        <h5 style="color: #0c5460;font-weight: bolder;font-size: smaller;padding-left: 5px">{{ request.session.useremail }}</h5>
                         <a class="dropdown-item" href="viewuserorders">View Orders</a>
-                        <a class="dropdown-item" href="index">Log Out</a>
+                        <a class="dropdown-item" href="logout">Log Out</a>
                     </div>
                 </li>
             </ul>
@@ -48,7 +60,8 @@
                                 <div class="text">
                                     <h3 class="word wisteria">We Are The Best Home Service For Making Your Home
                                         Shine</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                    <p>Service Culture Start With Us.We Provided Best Service in at your footpoint.
+                                    </p>
                                 </div>
 
                             </div>
@@ -60,7 +73,7 @@
                                 <div class="text">
                                     <h3 class="word wisteria">Making your Home Shine and Spotless Is Our Business And
                                         Priority</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                    <p>Service Culture Start With Us.We Provided Best Service in at your footpoint.</p>
                                 </div>
 
                             </div>
@@ -72,7 +85,7 @@
                                 <div class="text">
                                     <h3 class="word wisteria">Our Home Service Providers will Make You Proud in
                                         Society</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                    <p>Service Culture Start With Us.We Provided Best Service in at your footpoint.</p>
                                 </div>
 
                             </div>
