@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <script src="{% static 'myjs/signup.js' %}"></script>
     <script>
         var s0,s1,s2,s3,s4,s5;
@@ -19,15 +19,16 @@
             s4=r4;
             s5=r5;
             {#alert(r0 + " " + r1 + " " + r2 + " " + r3 + " " + r4 + " " + r5);#}
-            var ans = "<label>"+"<strong>"+ "Merchant:" +"</strong>" +"</label>"
-                    +"<br>"
-                +"<i>"+r1+"</i>" +
-                "<br><br><br> " +
+            var ans = "<label>"+"<strong>"+ "Service:" +"</strong>" +"</label>"
+                    +"<br>"+
                 r2 +
                 "<br><br><br>" +
+                "Rs:"+
                 r3 +
                 "<br><br><br> " +
-                r4  ;
+                    "Desc: "+
+                r4;
+
             var ans2="";
              var xml = new XMLHttpRequest();
     xml.onreadystatechange = function () {
@@ -43,14 +44,18 @@
               ans2 = "<label>"+"<strong>"+ "Merchant Details:" +"</strong>" +"</label>"
                     +"<br>"
                 +"<i>"+mobile+"</i>" +
-                "<br><br><br> " +
+                "<br><br><br> "
+                  +"<i>"+r1+"</i>" +
+                "<br><br><br> "+
                 business +
                 "<br><br><br>" +
+                   "Address: "+
                 address +
                 "<br><br><br> " +
+                 "Available at: "+
                 timing +
                 "<br><br><br> "
-                + price;
+                +"Rs:"+ price;
 
 
 
@@ -70,19 +75,25 @@ function bookservice() {
             var totalcharges=0;
             totalcharges=parseFloat(price)+parseFloat(s3);
            var date=document.getElementById('bookingdate').value;
- var xml = new XMLHttpRequest();
-    xml.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var res=this.responseText.trim();
-            if(res=="available"){
-                window.location.href="gotopaymentpage?totalcharges="+totalcharges+"&memail="+s1+"&serviceid="+s0+"&date="+date+"&mobile="+mobile;
-            }
-            else{
-                alert('merchant unavailable on this date');
-            }
+           if (date==""){
+               alert("Please Enter Date");
+               return false;
+           }
+           else{
+                 var xml = new XMLHttpRequest();
+                    xml.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var res=this.responseText.trim();
+                            if(res=="available"){
+                                window.location.href="gotopaymentpage?totalcharges="+totalcharges+"&memail="+s1+"&serviceid="+s0+"&date="+date+"&mobile="+mobile;
+                            }
+                            else{
+                                alert('merchant unavailable on this date');
+                            }
 
-        }
-    };
+                        }
+                    };
+               }
     xml.open('GET', 'getmerchantavailbality?email='+s1+"&date="+date, true);
     xml.send();
 
@@ -120,18 +131,11 @@ function bookservice() {
                 <li class="nav-item">
                     <a class="nav-link" href="services">Services</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="gallery">Gallery</a>
-                        <a class="dropdown-item" href="typography">Typography</a>
 
-                        <a class="dropdown-item" href="error">Error</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link " href="gallery">Gallery</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link " href="contact">Contact</a>
                 </li>
@@ -143,7 +147,7 @@ function bookservice() {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="viewuserorders">View Orders</a>
-                        <a class="dropdown-item" href="index">Log Out</a>
+                        <a class="dropdown-item" href="logout">Log Out</a>
                     </div>
                 </li>
             </ul>
@@ -155,10 +159,10 @@ function bookservice() {
 {#{{ ar }}#}
 
 <div class="container" style="position: relative; margin-top: 5%">
-    <div class="row">
+    <div class="row float-left">
             {% for row in ar %}
-                <div class="col-sm-4">
-                    <div class="card mt-5" style="width: 18rem;">
+                <div class="col-sm-4 float-left">
+                    <div class="card mt-4" style="width: 18rem;">
                         <img class="card-img-top img-responsive" style="width: 100%;height: 50%"
                              src="{% static 'media/merchantservices/' %}{{ row.5 }}" alt="Card image cap">
                         <div class="card-body">
@@ -176,14 +180,14 @@ function bookservice() {
 
 {#                           Booking Modal                  #}
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog" >
+<div id="myModal" class="modal fade"  role="dialog"  >
     <div class="modal-dialog modal-lg" >
 
         <!-- Modal content-->
         <div class="modal-content" style="color: #0c5460">
 
 
-            <div class="modal-body">
+            <div class="modal-body" style="background-color: #76daff">
                 <div class="row">
                     <div class="col-sm-6">
                         <h3 style="justify-content: center">Service Description</h3>
@@ -199,22 +203,22 @@ function bookservice() {
 
                 </div>
                 <div class="row">
-                    <form class="inline">
+                    <form class="formval">
                         <div class="form-group">
-                            <input type="date" id="bookingdate"  class="form-control"/>
+                            <input type="text"  date-required-rule="true" placeholder="DD-MM-YY" required     id="bookingdate"  class="form-control"/>
                         </div>
                         <div class="form-group">
                             <input type="button"  class="btn btn-success" onclick="bookservice()" value="Pay Now And Book"/>
                         </div>
                     </form>
-
                 </div>
 
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer" style="background-color: #76daff">
                 <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
             </div>
+
         </div>
 
     </div>

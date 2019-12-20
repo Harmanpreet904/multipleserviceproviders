@@ -17,10 +17,11 @@
     $(document).ready(function () {
         $("#form1").validate();
         $(".formval").validate();
-        $("#dob").datepicker({
+        $("#bookingdate").datepicker({
             changeYear: true,
             changeMonth: true,
-            dateFormat: "yy-mm-dd"
+            dateFormat: "yy-mm-dd",
+            minDate : 0
         })
     })
 </script>

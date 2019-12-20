@@ -82,7 +82,7 @@
         xml.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var output = JSON.parse(this.response);
-                alert(output);
+                {#alert(output);#}
              var   s = "";
                 s += "<thead>";
                 s += "<th>" + "Mobile" + "</th>";
@@ -129,7 +129,7 @@
         xml.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var output = this.response;
-                alert(output);
+                {#alert(output);#}
                 approvedmerchants()
             }
         };
@@ -146,7 +146,7 @@
         xml.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var output = JSON.parse(this.response);
-                alert(output);
+                {#alert(output);#}
               var  s = "";
                 s += "<thead>";
                 s += "<th>" + "Mobile" + "</th>";

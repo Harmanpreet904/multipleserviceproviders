@@ -98,8 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="w3_mg">
             <h3>Multiple Service Provider</h3>
             <div id="viewdate"></div>
-            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">We started our operations from Amritsar in 2016 with 3 servicemen. Today we have 2,500 servicemen across top 5 cities</p>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Contact Page
@@ -305,7 +304,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         xml.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var output = JSON.parse(this.response);
-                alert(output)
+                {#alert(output)#}
                 s = "";
                 s += "<thead>"
                 s += "<th>" + "Booking Id" + "</th>"

@@ -50,7 +50,7 @@ function verifyotp() {
 
 function signup() {
     var valmob = str(document.getElementById('mobile').value);
-    var email = document.getElementById('email').value;
+    var email = document.getElementById('useremail').value;
     var address = document.getElementById('address').value;
     var city = document.getElementById('city').value;
     var photo = document.getElementById('image').files[0];
@@ -68,7 +68,7 @@ function signup() {
     } else {
         var adduserdata = new FormData();
         adduserdata.append('mobile', document.getElementById('mobile').value);
-        adduserdata.append('email', document.getElementById('email').value);
+        adduserdata.append('email', document.getElementById('useremail').value);
         adduserdata.append('address', document.getElementById('address').value);
         adduserdata.append('city', document.getElementById('city').value);
         adduserdata.append('image', document.getElementById('image').files[0]);
@@ -285,7 +285,7 @@ function userlogin() {
         userlogin.append('catname', document.getElementById('catnamel').value);
 
         userlogin.append('city', document.getElementById('cityl').value);
-        alert(document.getElementById('opr').value);
+        // alert(document.getElementById('opr').value);
         var xml = new XMLHttpRequest();
         xml.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {

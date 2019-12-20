@@ -596,7 +596,7 @@ def inserttodb(request):
     merchantmessage = merchantmessage.replace(" ", "%20")
     conn = http.client.HTTPConnection('server1.vmm.education')
     conn.request('GET',
-                 "/VMMCloudMessaging/AWS_SMS_Sender?username=harmanpreetsingh&password=GO8VBM3L&message=" + merchantmessage + "&phone_numbers=" + merchantmobile)
+                 "/VMMCloudMessaging/AWS_SMS_Sender?username=ishagupta&password=RNDKN5XK&message=" + merchantmessage + "&phone_numbers=" + merchantmobile)
     response = conn.getresponse()
     print(response)
 

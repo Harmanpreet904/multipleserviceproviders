@@ -2,73 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2bb15f7-6a01-48de-b30d-ce06d72ce464" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/indeximages/3dpainting.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/arcwelding.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/back1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/back2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/boundarywalldesigning.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/brokenflush.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/carpenter2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/carpenter3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/changeshowerhead.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/electrician2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/electricshortcircuit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/generalcarpentary.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/grillwelding.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/hangpainting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/interiorpainting.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/lightiningconnection.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/lowwaterpressure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/microwaveissue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/moneybackgurantee.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/painter1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/plumber1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/pvc.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/remakingbathroom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/remodelingfurn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/repairfurn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/signupuser.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/signupuser2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/skillledserviceman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/usersignup3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/wallpainting.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/welder1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/welding3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indeximages/wiringissue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indexjs/SmoothScroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/almirah1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/almirah1_j0wd48h.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/ledlcdhometheatre.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/metalfurniture.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/office furniture.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/wardrobes1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mycss/new.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/carpenter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/electrician.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/fitter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/newnavbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/painter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/plumber.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/publicnavbarindex2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usersignup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/welder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/ac1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/compresor.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/gas pipe welding.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/gas pipe welding_BdN21ZH.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/gymaccessoriesfitting.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/home equipment welding.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/jointleakes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/refrigeration installment.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/tapleakingfixed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/wall Ac fix.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/wallcovering.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/welding services.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/merchantservices/windowglassfitting.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msp (1).sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/multipleserviceproviders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/multipleserviceproviders/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/myjs/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myjs/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admindashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admindashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bookingdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bookingdetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/bookserviceandpay.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bookserviceandpay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forgetpassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forgetpassword.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/publicnavbarindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publicnavbarindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/searchservice1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/merchantdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/merchantdashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/searchservice2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/searchservice2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/userheader.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userheader.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/userindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/userindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usersignup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usersignup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/viewuserorders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/viewuserorders.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
     </list>
@@ -135,7 +92,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/indexjs" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/Validation/FormValidate.html" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -281,7 +238,10 @@
       <workItem from="1574083685172" duration="8032000" />
       <workItem from="1574413396133" duration="12052000" />
       <workItem from="1574495461940" duration="4377000" />
-      <workItem from="1574682529104" duration="620000" />
+      <workItem from="1574682529104" duration="1482000" />
+      <workItem from="1574699863495" duration="8367000" />
+      <workItem from="1576066683194" duration="2073000" />
+      <workItem from="1576641395773" duration="12874000" />
     </task>
     <task id="LOCAL-00001" summary="all changes">
       <created>1573014615407</created>
@@ -339,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573478005012</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="all changes">
+      <created>1574683284067</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1574683284067</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,16 +327,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="all changes" />
     <MESSAGE value="new changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="new changed" />
+    <MESSAGE value="all changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="all changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/templates/viewuserorders.html</url>
-          <line>343</line>
+          <line>342</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
